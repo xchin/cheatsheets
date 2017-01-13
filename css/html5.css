@@ -1,0 +1,202 @@
+
+body {
+	font: 1em/150% 'Share', verdana, arial;
+	color:  #979797;
+	background: #1b1b1b;
+}
+a {
+	color: #669;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+h1 {
+	font: bold 2em 'Share', verdana, arial;
+	color:  #fcfcfc;
+	}
+
+/************************************************************************************
+STRUCTURE
+*************************************************************************************/
+#pagewrap {
+	padding: 5px;
+	width: 1600px;
+	margin: 10px auto;
+}
+header {
+	height: 120px;
+}
+header h1{
+	float: left;
+	margin: 20px;
+	background: transparent url('images/arrow.png') 50px 39px no-repeat;
+	
+}
+header h1 span{
+	float: left;
+	margin-right: 10px;
+	margin-top: -10px;
+	height: 45px;
+	padding:  10px 20px;
+	background: transparent url('images/h1_bg.png') 0 5px repeat-x;
+}
+header ul{
+	width: 250px;
+	float: right;
+	list-style-type: none;
+	margin:  20px 0 0 0;
+}
+header ul li{
+font-style: italic;
+font-size: .7em;
+line-height: 20px;
+margin: 0;
+	}
+header ul li span{
+display: block;
+width: 14px;
+height:14px;
+margin: 2px 5px 0 0;
+float: left;
+background: transparent url('images/cheat_sheet_sprite.png') 0 0 no-repeat;
+}
+header ul li span.grey{
+background-position: -13px 0;
+}
+header ul li span.magenta{
+background-position:  -26px 0;
+}
+header ul li span.blue{
+background-position:  0 -13px;
+}
+header ul li span.pink{
+background-position:  0 -26px;
+}
+header ul li span.undrln{
+border-bottom: 1px solid #f5acc7;
+}
+header ul li span.big_g{
+width: 24px;
+height:24px;
+background-position:  -16px -16px;
+margin-bottom: 40px;
+}
+header ul li:first-child{font-style: normal;
+font-size: .9em;
+background-image: none;
+		}
+section {
+	background: #1b1b1b;
+	display: block;
+	width: 305px;
+	margin-right: 16px;
+	float: left;
+}
+section:last-of-type {	
+	margin-right: 0;
+}
+section div {	
+	background: #292929;
+	margin: 0 0 10px 0;
+	padding: 5px;
+	clear: left;
+	height: 60px;
+}
+section div dl{	
+	width:  35%;
+	float: left;
+	font-size: 1em;
+	}
+section div dl.short{	
+	width:  20%;
+	}
+section div dl dt{
+	color: #fff;
+}
+section div dl dt.magenta{
+	color: #ed2375;
+}
+
+section div dl dd {	
+	font-weight: normal;
+	font-style: italic;
+	font-size: .8em;
+	line-height: 14px;
+}
+section div p{	
+	float: right;
+	width:  65%;
+	text-align: right;
+	font-weight: normal;
+	font-style: italic;
+	font-size: .7em;
+	margin-top: 5px;
+	line-height: 14px;
+}
+section div p.wide{
+width:  80%;
+}
+section div p span{	
+	color: #f5acc7;
+}
+section div p span.blue{	
+	color: #8ac1e8;
+}
+section div p span.undrln{	
+	border-bottom: 1px solid #f5acc7;
+}
+
+section div p.g{
+	width: 24px;
+	height:24px;		
+	background: transparent url('images/cheat_sheet_sprite.png') -16px -16px no-repeat;
+	}
+#footer {
+	clear: both;
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+	
+	#pagewrap {
+		width: 94%;
+	}
+	section {
+		width: 20%;
+	}
+}
+
+/* for 700px or less */
+@media screen and (max-width: 700px) {
+
+	section {
+		width: auto;
+		float: none;
+	}
+
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+	header {
+		height: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+}
+
+/* border & guideline (you can ignore these) */
+section {
+	background: #1b1b1b;
+}
+header, section {
+	margin-bottom: 5px;
+}
+#pagewrap, header, section, footer {
+}
