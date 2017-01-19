@@ -30,7 +30,7 @@ header {
 header h1{
 	float: left;
 	margin: 20px;
-	background: transparent url('images/arrow.png') 50px 39px no-repeat;
+	background: transparent url('../images/arrow.png') 50px 39px no-repeat;
 	
 }
 header h1 span{
@@ -39,7 +39,7 @@ header h1 span{
 	margin-top: -10px;
 	height: 45px;
 	padding:  10px 20px;
-	background: transparent url('images/h1_bg.png') 0 5px repeat-x;
+	background: transparent url('../images/h1_bg.png') 0 5px repeat-x;
 }
 header ul{
 	width: 250px;
@@ -59,7 +59,7 @@ width: 14px;
 height:14px;
 margin: 2px 5px 0 0;
 float: left;
-background: transparent url('images/cheat_sheet_sprite.png') 0 0 no-repeat;
+background: transparent url('../images/cheat_sheet_sprite.png') 0 0 no-repeat;
 }
 header ul li span.grey{
 background-position: -13px 0;
@@ -150,7 +150,7 @@ section div p span.undrln{
 section div p.g{
 	width: 24px;
 	height:24px;		
-	background: transparent url('images/cheat_sheet_sprite.png') -16px -16px no-repeat;
+	background: transparent url('../images/cheat_sheet_sprite.png') -16px -16px no-repeat;
 	}
 #footer {
 	clear: both;

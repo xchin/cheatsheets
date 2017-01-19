@@ -1,0 +1,258 @@
+
+body {
+	font: 1em/150% 'Share', verdana, arial;
+	color:  #979797;
+	background: #1b1b1b;
+}
+a {
+	color: #669;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+h1 {
+	font: bold 2em 'Share', verdana, arial;
+	color:  #fcfcfc;
+	}
+
+/************************************************************************************
+STRUCTURE
+*************************************************************************************/
+#wrapper {
+	padding: 0 5px;
+	margin: 0 auto;
+}
+header {
+	height: 100px;
+}
+header h1{
+	float: left;
+	margin: 20px 20px 0;
+	background: transparent url('../images/blu_arrow.png') 50px 39px no-repeat;
+	
+}
+header h1 span{
+	float: left;
+	margin-right: 10px;
+	margin-top: -10px;
+	height: 45px;
+	padding:  10px 20px;
+	background: transparent url('../images/h1_blu_bg.png') 0 5px repeat-x;
+}
+.title{
+	color: #fff;
+	margin: 10px 0;
+}
+.left, .right {
+	width: 33%;
+	display: inline-block;
+	font-size: .7em;
+}
+.right {
+	width: 66%;
+	vertical-align: top;
+	text-align:  right;
+}
+.left ul {
+	z-index: 1000;
+	margin: -10px 0 0 125px;
+	float: left;
+}
+.right ul {
+	display:  block;
+	margin: 10px;
+}
+.right ul:last-child {	
+	margin-top: 30px;
+}
+.left ul li span, 
+.right ul li span{
+	text-transform: uppercase;
+}
+.left ul li i, 
+.right ul li i{
+	font-style: italic;
+}
+.left ul li {
+	display: inline-block;
+	text-indent: -10000px;
+	padding: 0;
+	margin: 0 5px 0 0;
+}
+.left ul li a{
+	border-radius: 10px;
+	border: 2px solid #333;
+	height: 12px;
+	width: 12px;
+	display: block;
+	cursor: pointer;
+}
+.left ul li a.active {
+	background: #333;
+}
+.right ul li {
+	display: inline;
+	background: transparent url('../images/jquery_sheet_sprite.png') 3px -23px no-repeat;
+	padding-left: 15px;
+}
+.right ul li.selected {
+	color: #3052ce;
+	text-decoration: underline;
+}
+.right ul:first-child li {
+	background-position: -26px 0;	
+}
+.right ul li:first-child {
+	background: none;
+}
+.right ul li:first-child i,
+.bigStar {
+	font-style: normal;
+	font-size: 3em;
+	vertical-align:bottom;
+	color: #ffa800;
+}
+#page1, #page2, #page3, #page4, #page5, #page6, #page7, #page8 {
+	display: none;
+	margin-bottom: 25px;
+}
+#page1 {
+	display: block;
+}
+section {
+	background: #292929;
+	display: block;
+	width: 23.5%;
+	margin-left: 16px;
+	display: inline-block;
+	vertical-align: top;
+}
+section.wide {
+	width: 48.4%;
+}
+section:last-of-type {	
+}
+section h2{	
+	color:  #fff;
+	font-size: .9em;
+	background: transparent url(../images/jquery_sheet_sprite.png) 0 6px no-repeat;
+	padding: 0 0 2px 17px;
+	border-bottom: 3px solid #494949;
+	margin: 5px;
+}
+section div {	
+	margin: 0 5px;
+	padding: 0 0 5px;
+	clear: left;
+	font-size: .6em;
+	border-bottom: 1px solid #333;
+}
+section div:last-of-type {
+	border-bottom: none;
+}
+section div dl {	
+	width:  100%;
+	margin-bottom: 5px;
+}
+section div dl dt{
+	color: #fff;
+	display: inline-block;
+	width: 90%
+}
+section div dl dt p{
+	color: #979797;
+}
+section div dl dd{	
+	float: right;
+	display: inline-block;
+	width:  10%;
+	text-align: right;
+	font-weight: normal;
+	font-style: italic;
+	margin: 5px 0 10px;
+	line-height: 14px;
+}
+section div p {
+	margin: 5px 0;
+	line-height: 1.2em;	
+}
+section div p span,
+section div dl dt span,
+section div dl dd span {	
+	color: #8ac1e8;
+}
+section div div {
+	margin: 0;
+}
+section div div.secondary p {
+	width: 14%;
+	display: inline-block;
+	vertical-align: top;
+	text-align: right;
+	font-style: italic;
+}
+section div div.secondary p:first-child,
+section div div.secondary p:nth-child(3) {	
+	width: 85%;
+	text-align: left;
+	font-style: normal;
+}
+section.wide div{
+	width: 45%;
+	margin-right:  15px;
+	display: inline-block;
+	vertical-align: top;
+}
+section.wide ul {
+	line-height: 14px;
+}	
+#footer {
+	clear: both;
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+	
+	#pagewrap {
+		width: 94%;
+	}
+	section {
+		width: 20%;
+	}
+}
+
+/* for 700px or less */
+@media screen and (max-width: 700px) {
+
+	section {
+		width: auto;
+		float: none;
+	}
+
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+	header {
+		height: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+}
+
+/* border & guideline (you can ignore these) 
+section {
+	background: #1b1b1b;
+}
+header, section {
+	margin-bottom: 5px;
+}
+#pagewrap, header, section, footer {
+}
+*/
