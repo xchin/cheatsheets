@@ -5,7 +5,7 @@ body {
 	background: #1b1b1b;
 }
 a {
-	color: #669;
+	color: #2574e6;
 	text-decoration: none;
 }
 a:hover {
@@ -14,7 +14,21 @@ a:hover {
 h1 {
 	font: bold 2em 'Share', verdana, arial;
 	color:  #fcfcfc;
-	}
+}
+h3 {
+	margin: 10px 5px 5px;
+	padding: 2px 3px 0;
+	font-size: .7em;
+	line-height: 14px;
+	background: #494949;
+	color: #292929;
+}
+h4 {
+	margin: 10px 5px 5px;
+	font-size: .9em;
+	line-height: 14px;
+	color: #ccc;
+}
 
 /************************************************************************************
 STRUCTURE
@@ -27,17 +41,18 @@ header {
 	height: 100px;
 }
 header h1{
-	float: left;
+	display: inline-block;
 	margin: 20px 20px 0;
-	background: transparent url('../images/blu_arrow.png') 50px 39px no-repeat;
+	background: transparent url('../images/blu_arrow.png') -1px 39px no-repeat;
 	
 }
 header h1 span{
 	float: left;
 	margin-right: 10px;
 	margin-top: -10px;
-	height: 45px;
-	padding:  10px 20px;
+	height: 44px;
+	font-size: 1.2em;
+	padding: 10px 30px;
 	background: transparent url('../images/h1_blu_bg.png') 0 5px repeat-x;
 }
 .title{
@@ -54,9 +69,23 @@ header h1 span{
 	vertical-align: top;
 	text-align:  right;
 }
+.left ul li{
+	display: inline-block;
+}
+.left ul li a{
+	font-size: .8em;
+	padding: 0 3px;
+	color: #2574e6;
+}
 .left ul {
 	z-index: 1000;
-	margin: -10px 0 0 125px;
+	margin: 0 0 0 19px;
+	display: inline-block;
+}
+
+.left ul:last-child {
+	margin: -20px 0 0 160px;
+	display: inline-block;
 	float: left;
 }
 .right ul {
@@ -64,7 +93,7 @@ header h1 span{
 	margin: 10px;
 }
 .right ul:last-child {	
-	margin-top: 30px;
+	margin-top: 40px;
 }
 .left ul li span, 
 .right ul li span{
@@ -74,44 +103,41 @@ header h1 span{
 .right ul li i{
 	font-style: italic;
 }
-.left ul li {
-	display: inline-block;
+.left ul:last-child li {
 	text-indent: -10000px;
 	padding: 0;
-	margin: 0 5px 0 0;
+	margin: 0 4px 0 0;
 }
-.left ul li a{
+.left ul:last-child li a{
+	padding: 0;
 	border-radius: 10px;
 	border: 2px solid #333;
-	height: 12px;
-	width: 12px;
+	height: 10px;
+	width: 10px;
 	display: block;
 	cursor: pointer;
 }
 .left ul li a.active {
+	color: #ffa800;
+}
+.left ul:last-child li a.active {
 	background: #333;
 }
 .right ul li {
 	display: inline;
-	background: transparent url('../images/jquery_sheet_sprite.png') 3px -23px no-repeat;
+	background: transparent url('../images/jquery_sheet_sprite.png') 0 -44px no-repeat;
+	padding-left: 15px;
+}
+.right ul:last-child li {
+	background-position: 1px -23px;
 	padding-left: 15px;
 }
 .right ul li.selected {
 	color: #3052ce;
 	text-decoration: underline;
 }
-.right ul:first-child li {
-	background-position: -26px 0;	
-}
 .right ul li:first-child {
 	background: none;
-}
-.right ul li:first-child i,
-.bigStar {
-	font-style: normal;
-	font-size: 3em;
-	vertical-align:bottom;
-	color: #ffa800;
 }
 #page1, #page2, #page3, #page4, #page5, #page6, #page7, #page8 {
 	display: none;
@@ -129,9 +155,7 @@ section {
 	vertical-align: top;
 }
 section.wide {
-	width: 48.4%;
-}
-section:last-of-type {	
+	width: 48.5%;
 }
 section h2{	
 	color:  #fff;
@@ -140,6 +164,13 @@ section h2{
 	padding: 0 0 2px 17px;
 	border-bottom: 3px solid #494949;
 	margin: 5px;
+}
+.credits h2 {
+	color: #999;
+	background: transparent url(../images/jquery_sheet_sprite.png) 0 -63px no-repeat;
+}
+.credits a {
+	color: #8ac1e8;
 }
 section div {	
 	margin: 0 5px;
@@ -198,15 +229,24 @@ section div div.secondary p:nth-child(3) {
 	text-align: left;
 	font-style: normal;
 }
-section.wide div{
-	width: 45%;
-	margin-right:  15px;
-	display: inline-block;
-	vertical-align: top;
+section div {
+	opacity: 1;
+	max-height: 500px;
+	-webkit-transition: max-height 0.5s ease-out, opacity 0.5s ease;
+	-moz-transition: max-height 0.5s ease-out, opacity 0.5s ease;
+	-ms-transition: max-height 0.5s ease-out, opacity 0.5s ease;
+	-o-transition: max-height 0.5s ease-out, opacity 0.5s ease;
+	transition: max-height 0.5s ease-out, opacity 0.5s ease;
 }
-section.wide ul {
-	line-height: 14px;
-}	
+.gray {
+	opacity: 0;
+	max-height: 0;
+	overflow: hidden;
+	padding: 0;
+}
+.gray .title{
+	margin: 0;
+}
 #footer {
 	clear: both;
 }

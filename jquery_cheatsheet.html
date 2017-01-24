@@ -26,6 +26,15 @@
 	<header>
 		<div class="left">
 			<h1><span>jQuery</span> Visual Cheat Sheet</h1>
+			<ul class="js_versions">
+				<li><a href="#" class="active">3.0</a></li>
+				<li><a href="#">2.0</a></li>
+				<li><a href="#">1.8</a></li>
+				<li><a href="#">1.6</a></li>
+				<li><a href="#">1.4</a></li>
+				<li><a href="#">1.2</a></li>
+				<li><a href="#">1.0</a></li>
+			</ul>
 			<ul>
 				<li><a href="#" class="active">Page 1</a></li>
 				<li><a href="#">Page 2</a></li>
@@ -42,19 +51,18 @@
 				<li class="selected">Core</li>
 				<li class="selected">Selectors</li>
 				<li>Attributes</li>
-				<li>Traversing</li>
-				<li>Manipulation</li>
 				<li>CSS</li>
+				<li>DOM Manipulation</li>
+				<li>Traversing</li>
 				<li>Events</li>
 				<li>Effects</li>
 				<li>Ajax</li>
 				<li>Utilities</li>
 				<li>Callbacks</li>
-				<li>Data &amp; Misc</li>
-				<li>Deferred Object</li>
+				<li>DOM Element Methods</li>
+				<li>Deferred</li>
 			</ul>
 			<ul>
-				<li><i>&#8902;</i> = <span>New or changed in jQuery 1.7</span></li>
 				<li><i>f(x)</i> = <span>Function</span></li>
 				<li><i>a</i> = <span>Array</span></li>
 				<li><i>jQ</i> = <span>jQuery</span></li>
@@ -70,13 +78,6 @@
 	<div id="page1">
 		<section>		
 			<h2>Core</h2>
-			<div>
-				<dl>
-					<dt>jQuery.holdReady(<span>hold</span>)</dt>
-					<dd>u</dd>
-				</dl>
-				<p>Holds or releases the execution of jQuery's ready event.</p>
-			</div>
 			<div>
 				<dl>
 					<dt>jQuery()</dt>
@@ -96,7 +97,7 @@
 				</dl>
 				<p>Relinquish jQuery's control of the $ variable.</p>
 			</div>
-			<div>
+			<div class="v3_0 v2_0 v1_8 v1_4 v1_2 v1_0">
 				<dl>
 					<dt>jQuery.sub()</dt>
 					<dd>jQ</dd>
@@ -105,7 +106,14 @@
 					methods can be modified without affecting the original
 					jQuery object.</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
+				<dl>
+					<dt>jQuery.holdReady(<span>hold</span>)</dt>
+					<dd>u</dd>
+				</dl>
+				<p>Holds or releases the execution of jQuery's ready event.</p>
+			</div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>jQuery.when(<span>deferreds</span>)</dt>
 					<dd>pr</dd>
@@ -113,14 +121,130 @@
 				<p>Provides a way to execute callback functions based on one or more objects, usually Deferred objects that represent asynchronous events.</p>
 			</div>
 			<h2>Selectors</h2>
+			<h3>Basics</h3>
 			<div>
 				<p class="title">All Selector ("<span>*</span>")</p>
 				<p>Selects all elements.</p>
 			</div>
 			<div>
+				<p class="title">Class Selector ("<span>.class</span>")</p>
+				<p>Selects all elements with the given class.</p>
+			</div>
+			<div>
+				<p class="title">Element Selector ("<span>element</span>")</p>
+				<p>Selects all elements with the given tag name.</p>
+			</div>
+			<div>
+				<p class="title">ID Selector ("<span>#id</span>")</p>
+				<p>Selects a single element with the given id attribute.</p>
+			</div>
+			<div>
+				<p class="title">Multiple Selector ("<span>selector1</span>, <span>selector2</span>, <span>selectorN</span>")</p>
+				<p>Selects the combined results of all the specified selectors.</p>
+			</div>
+		</section>
+		<section>
+			<h3>Hierarchy</h3>
+			<div>
+				<p class="title">Child Selector ("<span>parent</span> > <span>child</span>")</p>
+				<p>Selects all direct child elements specified by "child" of elements specified by "parent".</p>
+			</div>
+			<div>
+				<p class="title">Descendant Selector ("<span>ancestor descendant</span>")</p>
+				<p>Selects all elements that are descendants of a given	ancestor.</p>
+			</div>
+			<div>
+				<p class="title">Next Adjacent Selector ("<span>prev</span> + <span>next</span>")</p>
+				<p>Selects all elements that are the first child of their parent.</p>
+			</div>
+			<div>
+				<p class="title">Next Siblings Selector ("<span>prev</span> ~ <span>siblings</span>")</p>
+				<p>Selects all sibling elements that follow after the "prev" element, have the same parent, and match the filtering "siblings" selector.</p>
+			</div>
+			<h3>Basic Filters</h3>
+			<div class="v1_0">
 				<p class="title">:animated Selector</p>
 				<p>Select all elements that are in the progress of an animation at the time the selector is run.</p>
 			</div>
+			<div>
+				<p class="title">:eq() Selector</p>
+				<p>Select the element at index n within the matched set.</p>
+			</div>
+			<div>
+				<p class="title">:even Selector</p>
+				<p>Selects even elements, zero-indexed.</p>
+			</div>
+			<div>
+				<p class="title">:first Selector</p>
+				<p>Selects the first matched element.</p>
+			</div>
+			<div>
+				<p class="title">:gt() Selector</p>
+				<p>Select all elements at an index greater than index within the matched set.</p>
+			</div>
+			<div class="v1_0">
+				<p class="title">:header Selector</p>
+				<p>Selects all elements that are headers, like h1, h2, h3 and so on.</p>
+			</div>
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<p class="title">:lang() Selector</p>
+				<p>Selects all elements of the specified language.</p>
+			</div>
+		</section>
+		<section>
+			<div>
+				<p class="title">:last Selector</p>
+				<p>Selects the last matched element.</p>
+			</div>
+			<div>
+				<p class="title">:lt() Selector</p>
+				<p>Select all elements at an index less than index within the matched set.</p>
+			</div>
+			<div>
+				<p class="title">:not() Selector</p>
+				<p>Selects all elements that do not match the given selector.</p>
+			</div>
+			<div>
+				<p class="title">:odd Selector</p>
+				<p>Selects odd elements, zero-indexed.</p>
+			</div>
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<p class="title">:root Selector</p>
+				<p>Selects the element that is the root of the document.</p>
+			</div>
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<p class="title">:target Selector</p>
+				<p>Selects the target element indicated by the fragment identifier of the document's URI.</p>
+			</div>
+			<h3>Content Filters</h3>
+			<div>
+				<p class="title">:contains() Selector</p>
+				<p>Select all elements that contain the specified text.</p>
+			</div>
+			<div>
+				<p class="title">:empty Selector</p>
+				<p>Select all elements that have no children (including text nodes).</p>
+			</div>
+			<div>
+				<p class="title">:has() Selector</p>
+				<p>Selects elements which contain at least one element that	matches the specified selector.</p>
+			</div>
+			<div>
+				<p class="title">:parent Selector</p>
+				<p>Select all elements that are the parent of another element, including text nodes.</p>
+			</div>	
+			<h3>Visibility Filters</h3>	
+			<div>
+				<p class="title">:hidden Selector</p>
+				<p>Selects all elements that are hidden.</p>
+			</div>
+			<div>
+				<p class="title">:visible Selector</p>
+				<p>Selects all elements that are visible.</p>
+			</div>
+		</section>
+		<section>
+			<h3>Attribute</h3>
 			<div>
 				<p class="title">Attribute Contains Prefix Selector [<span>name</span>|="<span>value</span>"]</p>
 				<p>Selects elements that have the specified attribute with a value either equal to a given string or starting with that	string followed by a hyphen (-).</p>
@@ -133,8 +257,6 @@
 				<p class="title">Attribute Contains Word Selector[<span>name</span>~="<span>value</span>"]</p>
 				<p>Selects elements that have the specified attribute with a value containing a given word, delimited by spaces.</p>
 			</div>
-		</section>
-		<section>		
 			<div>
 				<p class="title">Attribute Ends With Selector [<span>name</span>	$="<span>value</span>"]</p>
 				<p>Selects elements that have the specified attribute with a value ending exactly with a given string. The comparison is case sensitive.</p>
@@ -152,6 +274,60 @@
 				<p>Selects elements that have the specified attribute with a value beginning exactly with a given string.</p>
 			</div>
 			<div>
+				<p class="title">Has Attribute Selector [<span>name</span>]</p>
+				<p>Select all elements that contain the specified text.</p>
+			</div>
+			<div>
+				<p class="title">Multiple Attribute Selector [<span>name</span>="<span>value</span>"]	[<span>name2</span>="<span>value2</span>"]</p>
+				<p>Matches elements that match all of the specified attribute filters.</p>
+			</div>	
+			<h3>Child Filters</h3>
+			<div>
+				<p class="title">:first-child Selector</p>
+				<p>Selects all elements that are the first child of their parent.</p>
+			</div>
+		</section>
+	</div>
+	<div id="page2">
+		<section>
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<p class="title">:first-of-type Selector</p>
+				<p>Selects all elements that are the first among siblings of the same element name.</p>
+			</div>		
+			<div>
+				<p class="title">:last-child Selector</p>
+				<p>Selects all elements that are the last child of their parent.</p>
+			</div>
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<p class="title">:last-of-type Selector</p>
+				<p>Selects all elements that are the last among siblings of the same element name.</p>
+			</div>
+			<div>
+				<p class="title">:nth-child() Selector</p>
+				<p>Selects all elements that are the nth-child of their parent.</p>
+			</div>
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<p class="title">:nth-last-child() Selector</p>
+				<p>Selects all elements that are the nth-child of their parent, counting from the last element to the first.</p>
+			</div>
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<p class="title">:nth-last-of-type() Selector</p>
+				<p>Selects all the elements that are the nth-child of their parent in relation to siblings with the same element name, counting from the last element to the first.</p>
+			</div>	
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<p class="title">:nth-of-type() Selector</p>
+				<p>Selects all elements that are the nth child of their parent in relation to siblings with the same element name.</p>
+			</div>	
+			<div>
+				<p class="title">:only-child Selector</p>
+				<p>Selects all elements that are the only child of their parent.</p>
+			</div>
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<p class="title">:only-of-type Selector</p>
+				<p>Selects all elements that have no siblings with the same element name.</p>
+			</div>
+			<h3>Forms</h3>	
+			<div>
 				<p class="title">:button Selector</p>
 				<p>Selects all button elements and elements of type button.</p>
 			</div>
@@ -159,91 +335,27 @@
 				<p class="title">:checkbox Selector</p>
 				<p>Selects all elements of type checkbox.</p>
 			</div>
+		</section>
+		<section>
 			<div>
 				<p class="title">:checked Selector</p>
 				<p>Matches all elements that are checked.</p>
 			</div>
 			<div>
-				<p class="title">Child Selector ("<span>parent</span> > <span>child</span>")</p>
-				<p>Selects all direct child elements specified by "child" of elements specified by "parent".</p>
-			</div>
-			<div>
-				<p class="title">Class Selector ("<span>.class</span>")</p>
-				<p>Selects all elements with the given class.</p>
-			</div>
-			<div>
-				<p class="title">:contains() Selector</p>
-				<p>Select all elements that contain the specified text.</p>
-			</div>
-			<div>
-				<p class="title">Descendant Selector ("<span>ancestor descendant</span>")</p>
-				<p>Selects all elements that are descendants of a given	ancestor.</p>
-			</div>
-			<div>
 				<p class="title">:disabled Selector</p>
 				<p>Selects all elements that are disabled.</p>
-			</div>
-			<div>
-				<p class="title">Element Selector ("<span>element</span>")</p>
-				<p>Selects all elements with the given tag name.</p>
-			</div>
-		</section>
-		<section>		
-			<div>
-				<p class="title">:empty Selector</p>
-				<p>Select all elements that have no children (including text nodes).</p>
-			</div>
+			</div>	
 			<div>
 				<p class="title">:enabled Selector</p>
 				<p>Selects all elements that are enabled.</p>
 			</div>
-			<div>
-				<p class="title">:eq() Selector</p>
-				<p>Select the element at index n within the matched set.</p>
-			</div>
-			<div>
-				<p class="title">:even Selector</p>
-				<p>Selects even elements, zero-indexed.</p>
-			</div>
-			<div>
-				<p class="title">:file Selector</p>
-				<p>Selects all elements of type file.</p>
-			</div>
-			<div>
-				<p class="title">:first-child Selector</p>
-				<p>Selects all elements that are the first child of their parent.</p>
-			</div>
-			<div>
-				<p class="title">:first Selector</p>
-				<p>Selects the first matched element.</p>
-			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<p class="title">:focus selector</p>
 				<p>Selects element if it is currently focused.</p>
 			</div>
 			<div>
-				<p class="title">:gt() Selector</p>
-				<p>Select all elements at an index greater than index within the matched set.</p>
-			</div>
-			<div>
-				<p class="title">Has Attribute Selector [<span>name</span>]</p>
-				<p>Select all elements that contain the specified text.</p>
-			</div>
-			<div>
-				<p class="title">:has() Selector</p>
-				<p>Selects elements which contain at least one element that	matches the specified selector.</p>
-			</div>
-			<div>
-				<p class="title">:header Selector</p>
-				<p>Selects all elements that are headers, like h1, h2, h3 and so on.</p>
-			</div>
-			<div>
-				<p class="title">:hidden Selector</p>
-				<p>Selects all elements that are hidden.</p>
-			</div>
-			<div>
-				<p class="title">ID Selector ("<span>#id</span>")</p>
-				<p>Selects a single element with the given id attribute.</p>
+				<p class="title">:file Selector</p>
+				<p>Selects all elements of type file.</p>
 			</div>
 			<div>
 				<p class="title">:image Selector</p>
@@ -252,57 +364,7 @@
 			<div>
 				<p class="title">:input Selector</p>
 				<p>Selects all input, textarea, select and button elements.</p>
-			</div>
-		</section>
-		<section>		
-			<div>
-				<p class="title">:last-child Selector</p>
-				<p>Selects all elements that are the last child of their parent.</p>
-			</div>
-			<div>
-				<p class="title">:last Selector</p>
-				<p>Selects the last matched element.</p>
-			</div>
-			<div>
-				<p class="title">:lt() Selector</p>
-				<p>Select all elements at an index less than index within the matched set.</p>
-			</div>
-			<div>
-				<p class="title">Multiple Attribute Selector [<span>name</span>="<span>value</span>"]	[<span>name2</span>="<span>value2</span>"]</p>
-				<p>Matches elements that match all of the specified attribute filters.</p>
-			</div>
-			<div>
-				<p class="title">Multiple Selector ("<span>selector1</span>, <span>selector2</span>, <span>selectorN</span>")</p>
-				<p>Selects the combined results of all the specified selectors.</p>
-			</div>
-			<div>
-				<p class="title">Next Adjacent Selector ("<span>prev</span> + <span>next</span>")</p>
-				<p>Selects all elements that are the first child of their parent.</p>
-			</div>
-			<div>
-				<p class="title">Next Siblings Selector ("<span>prev</span> ~ <span>siblings</span>")</p>
-				<p>Selects all sibling elements that follow after the "prev" element, have the same parent, and match the filtering "siblings" selector.</p>
-			</div>
-			<div>
-				<p class="title">:not() Selector</p>
-				<p>Selects all elements that do not match the given selector.</p>
-			</div>
-			<div>
-				<p class="title">:nth-child() Selector</p>
-				<p>Selects all elements that are the nth-child of their parent.</p>
-			</div>
-			<div>
-				<p class="title">:odd Selector</p>
-				<p>Selects odd elements, zero-indexed.</p>
-			</div>
-			<div>
-				<p class="title">:only-child Selector</p>
-				<p>Selects all elements that are the only child of their parent.</p>
-			</div>
-			<div>
-				<p class="title">:parent Selector</p>
-				<p>Select all elements that are the parent of another element, including text nodes.</p>
-			</div>
+			</div>		
 			<div>
 				<p class="title">:password Selector</p>
 				<p>Selects all elements of type password.</p>
@@ -315,10 +377,6 @@
 				<p class="title">:reset Selector</p>
 				<p>Selects all elements of type reset.</p>
 			</div>
-		</section>
-	</div>
-	<div id="page2">
-		<section>		
 			<div>
 				<p class="title">:selected Selector</p>
 				<p>Selects all elements that are selected.</p>
@@ -330,20 +388,10 @@
 			<div>
 				<p class="title">:text Selector</p>
 				<p>Selects all elements of type text.</p>
-			</div>
-			<div>
-				<p class="title">:visible Selector</p>
-				<p>Selects all elements that are visible.</p>
-			</div>
+			</div>	
+		</section>
+		<section>
 			<h2>Attributes</h2>
-			<div>
-				<dl>
-					<dt>.addClass()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Adds the specified class(es) to each of the set of matched elements.<br>
-				.addClass(<span>className</span>) - .addClass( function(<span>index</span>,	<span>currentClass</span>) )</p>
-			</div>
 			<div>
 				<dl>
 					<dt>.attr()</dt>
@@ -352,24 +400,7 @@
 				<p>Get the value of an attribute for the first element in the set of matched elements.
 				.attr(<span>attributeName</span>) - .attr(<span>attributeName</span>, <span>value</span> )</p>
 			</div>
-			<div>
-				<dl>
-					<dt>.hasClass(<span>className</span>)</dt>
-					<dd>Str</dd>
-				</dl>
-				<p>Determine whether any of the matched elements are assigned the given class.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>
-						.html()<br>
-						<p>Get the HTML contents of the first element in the set of	matched elements.<br>
-						.html(<span>htmlString</span>) - .html( function(<span>index</span>, <span>oldhtml</span>) )</p>
-					</dt>
-					<dd>Str<br>jQ</dd>
-				</dl>
-			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>
 						.prop()<br>
@@ -381,35 +412,17 @@
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> .removeAttr(<span>attributeName</span>)</dt>
+					<dt>.removeAttr(<span>attributeName</span>)</dt>
 					<dd>jQ</dd>
 				</dl>
 				<p>Remove an attribute from each element in the set of matched elements.</p>
 			</div>
-			<div>
-				<dl>
-					<dt>.removeClass()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove a single class, multiple classes, or all classes from	each element in the set of matched elements.<br>
-				.removeClass( [<span>className</span>] )<br>
-				.removeClass( function(<span>index</span>, <span>class</span>) )</p>
-			</div>
-		</section>
-		<section>		
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>.removeProp(<span>propertyName</span>)</dt>
 					<dd>jQ</dd>
 				</dl>
 				<p>Remove a property for the set of matched elements.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.toggleClass(<span>className</span>)</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.</p>
 			</div>
 			<div>
 				<dl>
@@ -421,7 +434,446 @@
 					<dd>Str<br>N<br>a<br>jQ</dd>
 				</dl>
 			</div>
+			<h3>Data</h3>
+			<div>
+				<dl>
+					<dt>jQuery.data()</dt>
+					<dd>Obj</dd>
+				</dl>
+				<p>Store arbitrary data associated with the specified element. Returns the value that was set.<br>
+				jQuery.data( <span>element</span> , <span>key</span>, <span>value</span> )<br>
+				jQuery.data( <span>element</span>, <span>key</span> )<br>
+				jQuery.data( <span>element</span> )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.data()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Store arbitrary data associated with the matched	elements.<br>
+				data( <span>key</span> , <span>value</span> ), data( <span>key</span> )</p>
+			</div>
+			<div class="v1_4 v1_2 v1_0">
+				<dl>
+					<dt>jQuery.hasData( <span>element</span> )</dt>
+					<dd>0-1</dd>
+				</dl>
+				<p>Determine whether an element has any jQuery data associated with it.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>jQuery.removeData()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove a previously-stored piece of data jQuery.removeData( <span>element</span> [, <span>name</span>] )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.removeData()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove a previously-stored piece of data.<br>
+				.removeData( [<span>name</span>] ), .removeData( [<span>list</span>] )</p>
+			</div>
+		</section>
+		<section>
+			<h2>CSS</h2>
+			<div>
+				<dl>
+					<dt>.addClass()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Adds the specified class(es) to each of the set of matched elements.<br>
+				.addClass( <span>className</span> ) - .addClass( function(<span>index</span>,	<span>currentClass</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>
+						<span class="title">.css()</span><br>
+						<p>Get the value of a style property for the first element in the set of matched elements.<br>
+						.css( <span>propertyName</span> ) - .css( <span>propertyName</span>, <span>value</span> )
+						.css( <span>propertyName</span>, function(<span>index</span>, <span>value</span>) )
+						.css( <span>map</span>)</p>
+					</dt>
+					<dd>Str<br>jQ</dd>
+				</dl>
+			</div>
+			<div>
+				<dl>
+					<dt>jQuery.cssHooks</dt>
+					<dd>Obj</dd>
+				</dl>
+				<p>Hook directly into jQuery to override how particular CSS	properties are retrieved or set, normalize CSS property	naming, or create custom properties.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>jQuery.cssNumber</dt>
+					<dd>Obj</dd>
+				</dl>
+				<p>An object containing all CSS properties that may be used without a unit. The .css() method uses this object to see if it may append px to unitless values.</p>
+			</div>
+			<div class="v2_0 v1_8 v1_6 v1_4 v1_2 v1_0">
+				<dl>
+					<dt>jQuery.escapeSelector</dt>
+					<dd>Selector</dd>
+				</dl>
+				<p>Escapes any character that has a special meaning in a CSS selector.<br>
+				jQuery.escapeSelector( <span>selector</span> )</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.hasClass(<span>className</span>)</dt>
+					<dd>Str</dd>
+				</dl>
+				<p>Determine whether any of the matched elements are assigned the given class.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.removeClass()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove a single class, multiple classes, or all classes from	each element in the set of matched elements.<br>
+				.removeClass( [<span>className</span>] )<br>
+				.removeClass( function(<span>index</span>, <span>class</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.toggleClass(<span>className</span>)</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.</p>
+			</div>
+			<h3>Dimensions &amp; Position</h3>
+			<div>
+				<dl>
+					<dt>.height()</dt>
+					<dd>N</dd>
+				</dl>
+				<p>Get the current computed height for the first element in	the set of matched elements.<br>
+				.height( <span>value</span> )<br>
+				.height( function(<span>index</span>, <span>height</span>) )</p>
+			</div>
+		</section>
+	</div>
+	<div id="page3">
+		<section>
+			<div>
+				<dl>
+					<dt>.innerHeight()</dt>
+					<dd>N</dd>
+				</dl>
+				<p>Get the current computed height for the first element in	the set of matched elements, including padding but not border.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.innerWidth()</dt>
+					<dd>N</dd>
+				</dl>
+				<p>Get the current computed width for the first element in the set of matched elements, including padding but not border.</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.offset()</dt>
+					<dd>N</dd>
+				</dl>
+				<p>Get the current coordinates of the first element in the set of matched elements, relative to the document.<br>
+				.offset( <span>coordinates</span> ) - .offset( function(<span>index</span>, <span>coords</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.offsetParent()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Get the closest ancestor element that is positioned.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.outerHeight( [<span>includeMargin</span>] )</dt>
+					<dd>N</dd>
+				</dl>
+				<p>Get the current computed height for the first element in	the set of matched elements, including padding, border, and optionally margin. Returns an integer (without "px")
+				representation of the value or null if called on an empty set of elements.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.outerWidth( [<span>includeMargin</span>] )</dt>
+					<dd>N</dd>
+				</dl>
+				<p>Get the current computed width for the first element in the set of matched elements, including padding and border.</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.position()</dt>
+					<dd>Obj</dd>
+				</dl>
+				<p>Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.scrollLeft()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Get the current horizontal position of the scroll bar for the first element in the set of matched elements.<br>
+				.scrollLeft( <span>value</span> )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.scrollTop()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Get the current vertical position of the scroll bar for the first element in the set of matched elements.<br>
+				.scrollTop( <span>value</span> )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.width()</dt>
+					<dd>N</dd>
+				</dl>
+				<p>Get the current computed width for the first element in the set of matched elements.<br>
+				.width( <span>value</span> ) - .width( function(<span>index</span>, <span>width</span>) )</p>
+			</div>
+		</section>
+		<section>
+			<h2>DOM Manipulation</h2>
+			<h3>Copying</h3>
+			<div>
+				<dl>
+					<dt>.clone()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Create a deep copy of the set of matched elements.<br>
+				.clone( [<span>withDataAndEvents</span>] )<br>
+				.clone( [<span>withDataAndEvents</span>] [,<span>deepWithDataAndEvents</span>] )</p>
+			</div>
+			<h3>Insertion, Around</h3>
+			<div>
+				<dl>
+					<dt>.wrap()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Wrap an HTML structure around each element in the set of matched elements.<br>
+				.wrap( <span>wrappingElement</span> ) - .wrap( function(<span>index</span>) )</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.wrapAll( <span>wrappingElement</span> )</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Wrap an HTML structure around all elements in the set of	matched elements.</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.wrapInner()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Wrap an HTML structure around the content of each element in the set of matched elements.<br>
+				.wrapInner( <span>wrappingElement</span> )<br>
+				.wrapInner( function(<span>index</span>) )</p>
+			</div>
+			<h3>Insertion, Inside</h3>
+			<div>
+				<dl>
+					<dt>.append()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Insert content, specified by the parameter, to the end of each element in the set of matched elements.<br>
+				.append( <span>content</span> [, <span>content</span>] )<br>
+				.append( function(<span>index</span>, <span>html</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.appendTo(<span>target</span>)</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Insert every element in the set of matched elements to the end of the target.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>
+						<span class="title">.html()</span><br>
+						<p>Get the HTML contents of the first element in the set of matched elements.<br>
+						.html( <span>htmlString</span> ) - .html( function(<span>index</span>, <span>oldhtml</span>) )</p>
+					</dt>
+					<dd>Str<br>jQ</dd>
+				</dl>
+			</div>
+			<div>
+				<dl>
+					<dt>.prepend( <span>content</span> [, <span>content</span>] )</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.</p>
+			</div>
+		</section>
+		<section>
+			<div>
+				<dl>
+					<dt>.prependTo( <span>target</span> )</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Insert every element in the set of matched elements to the beginning of the target.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.text()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Get the combined text contents of each element in the set of matched elements, including their descendants.<br>
+				.text( <span>textString</span> ) - .text( function(<span>index</span>, <span>text</span>) )</p>
+			</div>
+			<h3>Insertion, Outside</h3>
+			<div>
+				<dl>
+					<dt>.after()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Insert content, specified by the parameter, after each element in the set of matched elements.<br>
+				.after( content [, <span>content</span>] ) - .after( function(<span>index</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.before()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Insert content, specified by the parameter, before each element in the set of matched elements.<br>
+				.before( <span>content</span> [, <span>content</span>] ) - .before( <span>function</span> )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.insertAfter( <span>target</span> )</dt>
+					<dd>N</dd>
+				</dl>
+				<p>Insert every element in the set of matched elements after the target.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.insertBefore( <span>target</span> )</dt>
+					<dd>N</dd>
+				</dl>
+				<p>Insert every element in the set of matched elements before the target.</p>
+			</div>
+			<h3>Removal & Replacement</h3>
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>.detach( [<span>selector</span>] )</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove the set of matched elements from the DOM.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.empty()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove all child nodes of the set of matched elements from the DOM.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.remove( [<span>selector</span>] )</dt>
+					<dd>Str</dd>
+				</dl>
+				<p>Remove the set of matched elements from the DOM.</p>
+			</div>
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>.unwrap()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.</p>
+			</div>
+		</section>
+		<section>
+			<div class="v1_0">
+				<dl>
+					<dt>.replaceAll( <span>target</span> )</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Replace each target element with the set of matched elements.</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.replaceWith()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Replace each element in the set of matched elements with	the provided new content.<br>
+				.replaceWith( <span>newContent</span> ) - .replaceWith( <span>function</span> )</p>
+			</div>
 			<h2>Traversing</h2>
+			<h3>Filtering</h3>
+			<div>
+				<dl>
+					<dt>.eq(<span>index</span>)</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Reduce the set of matched elements to the one at the	specified index.</p>
+			</div>	
+			<div>
+				<dl>
+					<dt>.filter()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Reduce the set of matched elements to those that match the selector or pass the function's test.<br>
+				.filter(<span>selector</span>) - .filter( function(<span>index</span>) )
+				.filter(<span>element</span>) - .filter(<span>jQuery object</span>)</p>
+			</div>	
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>.first()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Reduce the set of matched elements to the first in the set.</p>
+			</div>
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>.has()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.<br>
+				.has(<span>selector</span>) - .has(<span>contained</span>)</p>
+			</div>	
+			<div>
+				<dl>
+					<dt>.is()</dt>
+					<dd>0-1</dd>
+				</dl>
+				<p>Check the current matched set of elements against a selector, element, or jQuery object and return true if at least one of these elements matches the given arguments.<br>
+				.is(<span>selector</span>) - .is( function(<span>index</span>) ) - .is(<span>jQuery object</span>)<br>
+				.is(<span>element</span>)</p>
+			</div>
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>.last()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Reduce the set of matched elements to the final one in the set.</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.map( callback(<span>index</span>, <span>domElement</span>) )</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.not()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove elements from the set of matched elements.<br>
+				.not(<span>selector</span>) - .not(<span>elements</span>) - .not( function(<span>index</span>) )</p>
+			</div>
+		</section>
+	</div>
+	<div id="page4">
+		<section>
+			<div>
+				<dl>
+					<dt>.slice( <span>start</span> [, <span>end</span>] )</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Reduce the set of matched elements to a subset specified	by a range of indices.</p>
+			</div>
+			<h3>Miscellaneous Traversing</h3>
 			<div>
 				<dl>
 					<dt>.add()</dt>
@@ -431,33 +883,21 @@
 				.add(<span>selector</span>) - .add(<span>elements</span>) - .add(<span>html</span>)
 				.add(<span>jQuery object</span>) - .add(<span>selector</span>,<span>context</span>)</p>
 			</div>
-			<div>
+			<div class="v1_6 v1_4 v1_2 v1_0">
+				<dl>
+					<dt>.addBack()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Add the previous set of elements on the stack to the current set, optionally filtered by a selector.</p>
+			</div>
+			<div class="v3_0 v2_0 v1_0">
 				<dl>
 					<dt>.andSelf()</dt>
 					<dd>jQ</dd>
 				</dl>
 				<p>Add the previous set of elements on the stack to the	current set.</p>
 			</div>
-			<div>
-				<dl>
-					<dt>.children(<span>[selector]</span>)</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Get the children of each element in the set of matched elements, optionally filtered by a selector.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>
-						.closest()<br>
-						<p>Get the first element that matches the selector, beginning at the current element and progressing up through the	DOM tree.<br>
-						.closest(<span>selector</span>) - .closest(<span>selector</span>[,<span>context</span>] )<br>
-						.closest(<span>jQuery object</span>) - .closest(<span>element</span> )<br>
-						.closest(<span>selectors</span>[ ,<span>context</span>] )</p>
-					</dt>
-					<dd>jQ<br>a</dd>
-				</dl>
-			</div>
-			<div>
+			<div class="v1_0">
 				<dl>
 					<dt>.contents()</dt>
 					<dd>jQ</dd>
@@ -478,23 +918,25 @@
 				</dl>
 				<p>End the most recent filtering operation in the current chain and return the set of matched elements to its previous state.</p>
 			</div>
+			<h3>Tree Traversal</h3>
 			<div>
 				<dl>
-					<dt>.eq(<span>index</span>)</dt>
+					<dt>.children(<span>[selector]</span>)</dt>
 					<dd>jQ</dd>
 				</dl>
-				<p>Reduce the set of matched elements to the one at the	specified index.</p>
+				<p>Get the children of each element in the set of matched elements, optionally filtered by a selector.</p>
 			</div>
-		</section>
-		<section>		
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
-					<dt>.filter()</dt>
-					<dd>jQ</dd>
+					<dt>
+						.closest()<br>
+						<p>Get the first element that matches the selector, beginning at the current element and progressing up through the	DOM tree.<br>
+						.closest(<span>selector</span>) - .closest(<span>selector</span>[,<span>context</span>] )<br>
+						.closest(<span>jQuery object</span>) - .closest(<span>element</span> )<br>
+						.closest(<span>selectors</span>[ ,<span>context</span>] )</p>
+					</dt>
+					<dd>jQ<br>a</dd>
 				</dl>
-				<p>Reduce the set of matched elements to those that match the selector or pass the function's test.<br>
-				.filter(<span>selector</span>) - .filter( function(<span>index</span>) )
-				.filter(<span>element</span>) - .filter(<span>jQuery object</span>)</p>
 			</div>
 			<div>
 				<dl>
@@ -504,44 +946,8 @@
 				<p>Get the descendants of each element in the current set of matched elements, filtered by a selector, jQuery object, or element.<br>
 				.find((<span>selector</span>) - .find((<span>jQuery object</span>) - .find((<span>element</span>)</p>
 			</div>
-			<div>
-				<dl>
-					<dt>.first()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Reduce the set of matched elements to the first in the set.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.has()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.<br>
-				.has(<span>selector</span>) - .has(<span>contained</span>)</p>
-			</div>
-			<div>
-				<dl>
-					<dt><span class="bigStar">&#8902;</span> .is()</dt>
-					<dd>0-1</dd>
-				</dl>
-				<p>Check the current matched set of elements against a selector, element, or jQuery object and return true if at least one of these elements matches the given arguments.<br>
-				.is(<span>selector</span>) - .is( function(<span>index</span>) ) - .is(<span>jQuery object</span>)<br>
-				.is(<span>element</span>)</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.last()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Reduce the set of matched elements to the final one in the set.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.map( callback(<span>index</span>, <span>domElement</span>) )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Pass each element in the current matched set through a function, producing a new jQuery object containing the return values.</p>
-			</div>
+		</section>
+		<section>
 			<div>
 				<dl>
 					<dt>.next( [<span>selector</span>] )</dt>
@@ -549,14 +955,14 @@
 				</dl>
 				<p>Get the immediately following sibling of each element in	the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.</p>
 			</div>
-			<div>
+			<div class="v1_0">
 				<dl>
 					<dt>.nextAll( [<span>selector</span>] )</dt>
 					<dd>jQ</dd>
 				</dl>
 				<p>Get all following siblings of each element in the set of matched elements, optionally filtered by a selector.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>.nextUntil()</dt>
 					<dd>jQ</dd>
@@ -564,24 +970,7 @@
 				<p>Get all following siblings of each element up to but not	including the element matched by the selector, DOM node, or jQuery object passed.<br>
 				.nextUntil( [<span>selector</span>] [, <span>filter</span>] ) - .nextUntil( [<span>element</span>] [,
 				<span>filter</span>] )</p>
-			</div>
-		</section>
-		<section>		
-			<div>
-				<dl>
-					<dt>.not()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove elements from the set of matched elements.<br>
-				.not(<span>selector</span>) - .not(<span>elements</span>) - .not( function(<span>index</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.offsetParent()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Get the closest ancestor element that is positioned.</p>
-			</div>
+			</div>	
 			<div>
 				<dl>
 					<dt>.parent( [selector] )</dt>
@@ -596,7 +985,7 @@
 				</dl>
 				<p>Get the ancestors of each element in the current set of	matched elements, optionally filtered by a selector.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>.parentsUntil()</dt>
 					<dd>jQ</dd>
@@ -612,14 +1001,14 @@
 				</dl>
 				<p>Get the immediately preceding sibling of each element in	the set of matched elements, optionally filtered by a selector.</p>
 			</div>
-			<div>
+			<div class="v1_0">
 				<dl>
 					<dt>.prevAll( [<span>selector</span>] )</dt>
 					<dd>jQ</dd>
 				</dl>
 				<p>Get the closest ancestor element that is positioned.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>.prevUntil()</dt>
 					<dd>jQ</dd>
@@ -635,464 +1024,64 @@
 				</dl>
 				<p>Get the siblings of each element in the set of matched elements, optionally filtered by a selector.</p>
 			</div>
-			<div>
-				<dl>
-					<dt>.slice( <span>start</span> [, <span>end</span>] )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Reduce the set of matched elements to a subset specified	by a range of indices.</p>
-			</div>
-		</section>
-	</div>
-	<div id="page3">
-		<section>
-			<h2>Manipulation</h2>
-			<div>
-				<dl>
-					<dt>.addClass()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Adds the specified class(es) to each of the set of matched elements.<br>
-				.addClass(<span>className</span>) - .addClass( function(<span>index</span>,	<span>currentClass</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.after()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Insert content, specified by the parameter, after each element in the set of matched elements.<br>
-				.after( content [, <span>content</span>] ) - .after( function(<span>index</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.append()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Insert content, specified by the parameter, to the end of each element in the set of matched elements.<br>
-				.append( <span>content</span> [, <span>content</span>] )<br>
-				.append( function(<span>index</span>, <span>html</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.appendTo(<span>target</span>)</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Insert every element in the set of matched elements to the end of the target.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.attr()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Get the value of an attribute for the first element in the set of matched elements.<br>
-				.attr( <span>attributeName</span> ) - .attr( <span>attributeName</span>, <span>value</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.before()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Insert content, specified by the parameter, before each element in the set of matched elements.<br>
-				.before( <span>content</span> [, <span>content</span>] ) - .before( <span>function</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.clone()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Create a deep copy of the set of matched elements.<br>
-				.clone( [<span>withDataAndEvents</span>] )<br>
-				.clone( [<span>withDataAndEvents</span>] [,<span>deepWithDataAndEvents</span>] )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>
-						.css()<br>
-						<p>Get the value of a style property for the first element in
-						the set of matched elements.<br>
-						.css( <span>propertyName</span> ) - .css( <span>propertyName</span>, <span>value</span> )<br>
-						.css( <span>propertyName</span>, function(<span>index</span>, <span>value</span>) )<br>
-						.css( <span>map</span> )
-						</p>
-					</dt>
-					<dd>Str<br>jQ</dd>
-				</dl>
-			</div>
-			<div>
-				<dl>
-					<dt>.detach( [<span>selector</span>] )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove the set of matched elements from the DOM.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.empty()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove all child nodes of the set of matched elements from the DOM.</p>
-			</div>
 		</section>
 		<section>
-			<div>
-				<dl>
-					<dt>.hasClass( <span>className</span> )</dt>
-					<dd>Str</dd>
-				</dl>
-				<p>Determine whether any of the matched elements are assigned the given class.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>
-						<span class="title">.html()</span><br>
-						<p>Get the HTML contents of the first element in the set of matched elements.<br>
-						.html( <span>htmlString</span> ) - .html( function(<span>index</span>, <span>oldhtml</span>) )</p>
-					</dt>
-					<dd>Str<br>jQ</dd>
-				</dl>
-			</div>
-			<div>
-				<dl>
-					<dt>.innerHeight()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed height for the first element in the set of matched elements, including padding but not	border.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.innerWidth()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed width for the first element in the set of matched elements, including padding but not border.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.insertAfter( <span>target</span> )</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Insert every element in the set of matched elements after the target.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.insertBefore( <span>target</span> )</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Insert every element in the set of matched elements before the target.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.offset()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current coordinates of the first element in the set	of matched elements, relative to the document.<br>
-				.offset( <span>coordinates</span> ) - .offset( function(<span>index</span>, <span>coords</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.outerHeight( [<span>includeMargin</span>] )</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin. Returns an integer (without "px")	representation of the value or null if called on an empty set of elements.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.position()</dt>
-					<dd>Obj</dd>
-				</dl>
-				<p>Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.prepend( <span>content</span> [, <span>content</span>] )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Insert content, specified by the parameter, to the beginning of each element in the set of matched elements.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.prependTo( <span>target</span> )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Insert every element in the set of matched elements to the beginning of the target.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>
-						<span class="title">.prop()</span><br>
-						<p>Get the value of a property for the first element in the set of matched elements.<br>
-						.prop( <span>propertyName</span> ) - .prop( <span>propertyName</span>, <span>value</span> )</p>
-					</dt>
-					<dd>Str<br>jQ</dd>
-				</dl>
-			</div>
-		</section>
-		<section>
-			<div>
-				<dl>
-					<dt>.remove( [<span>selector</span>] )</dt>
-					<dd>Str</dd>
-				</dl>
-				<p>Remove the set of matched elements from the DOM.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.removeAttr( <span>attributeName</span> )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove an attribute from each element in the set of matched elements.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.removeClass()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove a single class, multiple classes, or all classes from	each element in the set of matched elements.<br>
-				.removeClass( [<span>className</span>] )<br>
-				.removeClass( function(<span>index</span>, <span>class</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.removeProp( <span>propertyName</span> )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove a property for the set of matched elements.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.replaceAll( <span>target</span> )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Replace each target element with the set of matched elements.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.replaceWith()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Replace each element in the set of matched elements with	the provided new content.<br>
-				.replaceWith( <span>newContent</span> ) - .replaceWith( <span>function</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.scrollLeft()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Get the current horizontal position of the scroll bar for the first element in the set of matched elements.<br>
-				.scrollLeft( <span>value</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.scrollTop()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Get the current vertical position of the scroll bar for the first element in the set of matched elements.<br>
-				.scrollTop( <span>value</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.text()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Get the combined text contents of each element in the set of matched elements, including their descendants.<br>
-				.text( <span>textString</span> ) - .text( function(<span>index</span>, <span>text</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.toggleClass()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.<br>
-				.toggleClass( <span>className</span> )<br>
-				.toggleClass( <span>className</span>, <span>switch</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.unwrap()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.</p>
-			</div>
-		</section>
-		<section>
-			<div>
-				<dl>
-					<dt>
-						<span class="title">.val()</span><br>
-						<p>Get the value of a property for the first element in the set of matched elements.<br>
-						.prop( <span>propertyName</span> ) - .prop( <span>propertyName</span>, <span>value</span> )</p>
-					</dt>
-					<dd>Str<br>N<br>a<br>jQ</dd>
-				</dl>
-			</div>
-			<div>
-				<dl>
-					<dt>.width()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed width for the first element in the set of matched elements.<br>
-				.width( <span>value</span> ) - .width( function(<span>index</span>, <span>width</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.wrap()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Wrap an HTML structure around each element in the set of matched elements.<br>
-				.wrap( <span>wrappingElement</span> ) - .wrap( function(<span>index</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.wrapAll( <span>wrappingElement</span> )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Wrap an HTML structure around all elements in the set of	matched elements.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.wrapInner()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Wrap an HTML structure around the content of each element in the set of matched elements.<br>
-				.wrapInner( <span>wrappingElement</span> )<br>
-				.wrapInner( function(<span>index</span>) )</p>
-			</div>
-			<h2>CSS</h2>
-			<div>
-				<dl>
-					<dt>.addClass()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Adds the specified class(es) to each of the set of matched elements.<br>
-				.addClass( <span>className</span> ) - .addClass( function(<span>index</span>,	<span>currentClass</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>
-						<span class="title">.css()</span><br>
-						<p>Get the value of a style property for the first element in	the set of matched elements.<br>
-						.css( <span>propertyName</span> ) - .css( <span>propertyName</span>, <span>value</span> )
-						.css( <span>propertyName</span>, function(<span>index</span>, <span>value</span>) )
-						.css( <span>map</span>)</p>
-					</dt>
-					<dd>Str<br>jQ</dd>
-				</dl>
-			</div>
-			<div>
-				<dl>
-					<dt>jQuery.cssHooks</dt>
-					<dd>Obj</dd>
-				</dl>
-				<p>Hook directly into jQuery to override how particular CSS	properties are retrieved or set, normalize CSS property	naming, or create custom properties.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.hasClass(<span>className</span>)</dt>
-					<dd>Str</dd>
-				</dl>
-				<p>Determine whether any of the matched elements are assigned the given class.</p>
-			</div>
-		</section>
-	</div>
-	<div id="page4">
-		<section>
-			<div>
-				<dl>
-					<dt>.height()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed height for the first element in	the set of matched elements.<br>
-				.height( <span>value</span> )<br>
-				.height( function(<span>index</span>, <span>height</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.innerHeight()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed height for the first element in	the set of matched elements, including padding but not border.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.innerWidth()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed width for the first element in the set of matched elements, including padding but not border.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.offset()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current coordinates of the first element in the set of matched elements, relative to the document.<br>
-				.offset( <span>coordinates</span> ) - .offset( function(<span>index</span>, <span>coords</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.outerHeight( [<span>includeMargin</span>] )</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed height for the first element in	the set of matched elements, including padding, border, and optionally margin. Returns an integer (without "px")
-				representation of the value or null if called on an empty set of elements.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.outerWidth( [<span>includeMargin</span>] )</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed width for the first element in the set of matched elements, including padding and border.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.position()</dt>
-					<dd>Obj</dd>
-				</dl>
-				<p>Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.removeClass()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove a single class, multiple classes, or all classes from each element in the set of matched elements.<br>
-				.removeClass( [<span>className</span>] )<br>
-				.removeClass( function(<span>index</span>, <span>class</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.scrollLeft()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current horizontal position of the scroll bar for the first element in the set of matched elements.<br>
-				.scrollLeft( <span>value</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.scrollTop()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current vertical position of the scroll bar for the first element in the set of matched elements.<br>
-				.scrollTop( <span>value</span> )</p>
-			</div>
-		</section>
-		<section>
-			<div>
-				<dl>
-					<dt>.toggleClass()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Add or remove one or more classes from each element in the set of matched elements, depending on either the class's presence or the value of the switch argument.<br>
-				.toggleClass( <span>className</span> )<br>
-				.toggleClass( <span>className</span>, <span>switch</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.width()</dt>
-					<dd>Int</dd>
-				</dl>
-				<p>Get the current computed width for the first element in the set of matched elements.<br>
-				.width( <span>value</span> ) - .width( function(<span>index</span>, <span>width</span>) )</p>
-			</div>
 			<h2>Events</h2>
+			<h3>Browser</h3>
+			<div class="v3_0 v2_0 v1_8">
+				<dl>
+					<dt>.error()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "error" JavaScript event.<br>
+				.error( handler(<span>eventObject</span>) )<br>
+				.error( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.resize()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.<br>
+				.resize( handler(<span>eventObject</span>) )<br>
+				.resize( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.scroll()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.<br>
+				.scroll( handler(<span>eventObject</span>) )<br>
+				.scroll( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<h3>Document Loading</h3>
+			<div class="v3_0 v2_0 v1_8">
+				<dl>
+					<dt>.load()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "load" JavaScript event.<br>
+				.load( handler(<span>eventObject</span>) )<br>
+				.load( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.ready( <span>handler</span> )</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Specify a function to execute when the DOM is fully loaded.</p>
+			</div>
+			<div class="v3_0 v2_0 v1_8">
+				<dl>
+					<dt>.unload()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "unload" JavaScript event.<br>
+				.unload( handler(<span>eventObject</span>) )<br>
+				.unload( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<h3>Event Handler Attachment</h3>
 			<div>
 				<dl>
 					<dt>.bind()</dt>
@@ -1103,6 +1092,106 @@
 				.bind( <span>eventType</span> [, <span>eventData</span>], <span>preventBubble</span> )<br>
 				.bind( <span>events</span> )</p>
 			</div>
+		</section>
+		<section>
+			<div>
+				<dl>
+					<dt>.delegate()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.<br>
+				.delegate( <span>selector</span>, <span>eventType</span>, <span>handler</span> )<br>
+				.delegate( <span>selector</span>, <span>eventType</span>, <span>eventData</span>, <span>handler</span> )<br>
+				.delegate( <span>selector</span>, <span>events</span> )</p>
+			</div>
+			<div class="v3_0 v2_0 v1_8 v1_2 v1_0">
+				<dl>
+					<dt>.die()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove all event handlers previously attached using .live() from the elements.<br>
+				.die( <span>eventType</span> [, <span>handler</span>] )<br>
+				.die( <span>eventTypes</span> )</p>
+			</div>
+			<div class="v3_0 v2_0 v1_8 v1_2 v1_0">
+				<dl>
+					<dt>.live()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Attach an event handler for all elements which match the	current selector, now and in the future.<br>
+				.live( <span>events</span>, <span>handler</span>) - .live( <span>events</span>, <span>data</span>, <span>handler</span> )<br>
+				.live( <span>events-map</span> )</p>
+			</div>
+			<div class="v1_6 v1_4 v1_2 v1_0">
+				<dl>
+					<dt>.off()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove an event handler.<br>
+				.off( <span>events</span> [, <span>selector</span>] [, <span>handler</span>] )<br>
+				.off( <span>events-map</span> [, <span>selector</span>] )</p>
+			</div>
+			<div class="v1_6 v1_4 v1_2 v1_0">
+				<dl>
+					<dt>.on()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Attach an event handler function for one or more events to the selected elements.<br>
+				.on( <span>events</span> [, <span>selector</span>] [, <span>data</span>], <span>handler</span> )<br>
+				.on( <span>events-map</span> [, <span>selector</span>] [, <span>data</span>] )</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.one()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Attach a handler to an event for the elements. The handler is executed at most once per element.<br>
+				.one( <span>events</span> [, <span>data</span>], <span>handler</span> )<br>
+				.one( <span>events</span> [, <span>selector</span>] [, <span>data</span>], <span>handler</span> )<br>
+				.one( <span>events-map</span> [, <span>selector</span>] [, <span>data</span>] )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.trigger()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Execute all handlers and behaviors attached to the matched elements for the given event type.<br>
+				.trigger( <span>eventType</span>, <span>extraParameters</span> )<br>
+				.trigger( <span>event</span> )</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.triggerHandler()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Execute all handlers attached to an element for an event.<br>
+				.triggerHandler( <span>eventType</span>, <span>extraParameters</span> )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.unbind()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove a previously-attached event handler from the elements.<br>
+				.unbind( [<span>eventType</span>] [, handler(<span>eventObject</span>)] )<br>
+				.unbind( <span>eventType</span>, <span>false</span> )</p>
+			</div>
+		</section>
+	</div>
+	<div id="page5">
+		<section>
+			<div>
+				<dl>
+					<dt>.undelegate()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.<br>
+				.undelegate( <span>selector</span>, <span>eventType</span> )<br>
+				.undelegate( <span>selector</span>, <span>eventType</span>, <span>handler</span> )<br>
+				.undelegate( <span>selector</span>, <span>events</span> )<br>
+				.undelegate( <span>namespace</span> )</p>
+			</div>	
+			<h3>Form Events</h3>
 			<div>
 				<dl>
 					<dt>.blur()</dt>
@@ -1123,6 +1212,82 @@
 			</div>
 			<div>
 				<dl>
+					<dt>.focus()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "focus" JavaScript event, or trigger that event on an element<br>
+				.focus( handler(<span>eventObject</span>) )<br>
+				.focus( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>.focusin()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "focusin" event.<br>
+				.focusin( handler(<span>eventObject</span>) )<br>
+				.focusin( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>.focusout()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "focusout" JavaScript event.<br>
+				.focusout( handler(<span>eventObject</span>) )<br>
+				.focusout( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.select()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "select" JavaScript event, or trigger that event on an element.<br>
+				.select( handler(<span>eventObject</span>) )<br>
+				.select( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.submit()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.<br>
+				.submit( handler(<span>eventObject</span>) )<br>
+				.submit( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+		</section>
+		<section>
+			<h3>Keyboard Events</h3>
+			<div>
+				<dl>
+					<dt>.keydown()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.<br>
+				.keydown( handler(<span>eventObject</span>) )<br>
+				.keydown( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.keypress()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.<br>
+				.keypress( handler(<span>eventObject</span>) )<br>
+				.keypress( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.keyup()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.<br>
+				.keyup( handler(<span>eventObject</span>) )<br>
+				.keyup( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<h3>Mouse</h3>
+			<div>
+				<dl>
 					<dt>.click()</dt>
 					<dd>jQ</dd>
 				</dl>
@@ -1130,6 +1295,15 @@
 				.click( handler(<span>eventObject</span>) )<br>
 				.click( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
 			</div>
+			<div>
+				<dl>
+					<dt>.contextmenu()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "contextmenu" JavaScript event, or trigger that event on an element.<br>
+				.contextmenu( handler(<span>eventObject</span>) )<br>
+				.contextmenu( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>		
 			<div>
 				<dl>
 					<dt>.dblclick()</dt>
@@ -1141,35 +1315,91 @@
 			</div>
 			<div>
 				<dl>
-					<dt>.delegate()</dt>
+					<dt>.hover()</dt>
 					<dd>jQ</dd>
 				</dl>
-				<p>Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.<br>
-				.delegate( <span>selector</span>, <span>eventType</span>, <span>handler</span> )<br>
-				.delegate( <span>selector</span>, <span>eventType</span>, <span>eventData</span>, <span>handler</span> )<br>
-				.delegate( <span>selector</span>, <span>events</span> )</p>
+				<p>Bind two handlers to the matched elements, to be executed when the mouse pointer enters and leaves the elements.<br>
+				.hover( handlerIn(<span>eventObject</span>)<br>
+				.handlerOut(<span>eventObject</span>) )<br>
+				.hover( handlerInOut(<span>eventObject</span>) )</p>
 			</div>
 		</section>
 		<section>
 			<div>
 				<dl>
-					<dt>.die()</dt>
+					<dt>.mousedown()</dt>
 					<dd>jQ</dd>
 				</dl>
-				<p>Remove all event handlers previously attached using .live() from the elements.<br>
-				.die( <span>eventType</span> [, <span>handler</span>] )<br>
-				.die( <span>eventTypes</span> )</p>
+				<p>Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.<br>
+				.mousedown( handler(<span>eventObject</span>) )<br>
+				.mousedown( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
 			</div>
 			<div>
 				<dl>
-					<dt>.error()</dt>
+					<dt>.mouseenter()</dt>
 					<dd>jQ</dd>
 				</dl>
-				<p>Bind an event handler to the "error" JavaScript event.<br>
-				.error( handler(<span>eventObject</span>) )<br>
-				.error( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+				<p>Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.<br>
+				.mouseenter( handler(<span>eventObject</span>) )<br>
+				.mouseenter( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
 			</div>
 			<div>
+				<dl>
+					<dt>.mouseleave()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.<br>
+				.mouseleave( handler(<span>eventObject</span>)<br>
+				.mouseleave( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.mousemove()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.<br>
+				.mousemove( handler(<span>eventObject</span>) )<br>
+				.mousemove( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.mouseout()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.<br>
+				.mouseout( handler(<span>eventObject</span>) )<br>
+				.mouseout( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.mouseover()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Get the current computed width for the first element in the set of matched elements.<br>
+				.mouseover( handler(<span>eventObject</span>) )<br>
+				.mouseover( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.mouseup()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind an event handler to the "mouseup" JavaScript event,	or trigger that event on an element.<br>
+				.mouseup( handler(<span>eventObject</span>) )<br>
+				.mouseup( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+			</div>
+			<div class="v3_0 v2_0 v1_8">
+				<dl>
+					<dt>.toggle()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Bind two or more handlers to the matched elements, to be executed on alternate clicks.<br>
+				handler(<span>eventObject</span>), handler(<span>eventObject</span>) [,handler(<span>eventObject</span>)]</p>
+			</div>
+		</section>
+		<section>
+			<h3>Event Object</h3>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>event.currentTarget</dt>
 					<dd>jQ</dd>
@@ -1183,33 +1413,40 @@
 				</dl>
 				<p>The optional data passed to jQuery.fn.bind when the current executing handler was bound.</p>
 			</div>
-			<div>
+			<div class="v1_6 v1_4 v1_2 v1_0">
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> event.delegateTarget</dt>
+					<dt>event.delegateTarget</dt>
 					<dd>el</dd>
 				</dl>
 				<p>The element where the currently-called jQuery event handler was attached.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>event.isDefaultPrevented()</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Returns whether event.preventDefault() was ever called on this event object.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>event.isImmediatePropagationStopped()</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Returns whether event.stopImmediatePropagation() was	ever called on this event object.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>event.isPropagationStopped()</dt>
-					<dd>0-1/dd>
+					<dd>0-1</dd>
 				</dl>
 				<p>Returns whether event.stopPropagation() was ever called on this event object.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>event.metakey</dt>
+					<dd>0-1</dd>
+				</dl>
+				<p>Indicates whether the META key was pressed when the event fired.</p>
 			</div>
 			<div>
 				<dl>
@@ -1247,15 +1484,17 @@
 				<p>The other DOM element involved in the event, if any.</p>
 			</div>
 		</section>
+	</div>
+	<div id="page6">
 		<section>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>event.result</dt>
 					<dd>Obj</dd>
 				</dl>
 				<p>The last value returned by an event handler that was triggered by this event, unless the value was undefined.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<p class="title">event.stopImmediatePropagation()</p>
 				<p>The last value returned by an event handler that was triggered by this event, unless the value was undefined.</p>
 			</div>
@@ -1291,307 +1530,39 @@
 				</dl>
 				<p>For key or button events, this attribute indicates the specific button or key that was pressed.</p>
 			</div>
+			<h2>Effects</h2>
+			<h3>Basic</h3>
 			<div>
 				<dl>
-					<dt>.focus()</dt>
+					<dt>.hide()</dt>
 					<dd>jQ</dd>
 				</dl>
-				<p>Bind an event handler to the "focus" JavaScript event, or trigger that event on an element<br>
-				.focus( handler(<span>eventObject</span>) )<br>
-				.focus( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+				<p>Hide the matched elements.<br>
+				.hide( <span>duration</span> [, <span>callback</span>] )<br>
+				.hide( [<span>duration</span>] [, <span>easing</span>] [, <span>callback</span>] )</p>
 			</div>
 			<div>
 				<dl>
-					<dt>.focusin()</dt>
+					<dt>.show()</dt>
 					<dd>jQ</dd>
 				</dl>
-				<p>Bind an event handler to the "focusin" event.<br>
-				.focusin( handler(<span>eventObject</span>) )<br>
-				.focusin( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.focusout()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "focusout" JavaScript event.<br>
-				.focusout( handler(<span>eventObject</span>) )<br>
-				.focusout( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.hover()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind two handlers to the matched elements, to be executed when the mouse pointer enters and leaves the elements.<br>
-				.hover( handlerIn(<span>eventObject</span>)<br>
-				.handlerOut(<span>eventObject</span>) )<br>
-				.hover( handlerInOut(<span>eventObject</span>) )</p>
-			</div>
-		</section>
-	</div>
-	<div id="page5">
-		<section>
-			<div>
-				<dl>
-					<dt>.keydown()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.<br>
-				.keydown( handler(<span>eventObject</span>) )<br>
-				.keydown( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.keypress()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.<br>
-				.keypress( handler(<span>eventObject</span>) )<br>
-				.keypress( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.keyup()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.<br>
-				.keyup( handler(<span>eventObject</span>) )<br>
-				.keyup( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.live()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Attach an event handler for all elements which match the	current selector, now and in the future.<br>
-				.live( <span>events</span>, <span>handler</span>) - .live( <span>events</span>, <span>data</span>, <span>handler</span> )<br>
-				.live( <span>events-map</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.load()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "load" JavaScript event.<br>
-				.load( handler(<span>eventObject</span>) )<br>
-				.load( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.mousedown()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.<br>
-				.mousedown( handler(<span>eventObject</span>) )<br>
-				.mousedown( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.mouseenter()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.<br>
-				.mouseenter( handler(<span>eventObject</span>) )<br>
-				.mouseenter( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.mouseleave()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.<br>
-				.mouseleave( handler(<span>eventObject</span>)<br>
-				.mouseleave( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.mousemove()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.<br>
-				.mousemove( handler(<span>eventObject</span>) )<br>
-				.mousemove( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-		</section>
-		<section>
-			<div>
-				<dl>
-					<dt>.mouseout()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.<br>
-				.mouseout( handler(<span>eventObject</span>) )<br>
-				.mouseout( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.mouseover()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Get the current computed width for the first element in the set of matched elements.<br>
-				.mouseover( handler(<span>eventObject</span>) )<br>
-				.mouseover( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.mouseup()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "mouseup" JavaScript event,	or trigger that event on an element.<br>
-				.mouseup( handler(<span>eventObject</span>) )<br>
-				.mouseup( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt><span class="bigStar">&#8902;</span> .off()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove an event handler.<br>
-				.off( <span>events</span> [, <span>selector</span>] [, <span>handler</span>] )<br>
-				.off( <span>events-map</span> [, <span>selector</span>] )</p>
-			</div>
-			<div>
-				<dl>
-					<dt><span class="bigStar">&#8902;</span> .on()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Attach an event handler function for one or more events to the selected elements.<br>
-				.on( <span>events</span> [, <span>selector</span>] [, <span>data</span>], <span>handler</span> )<br>
-				.on( <span>events-map</span> [, <span>selector</span>] [, <span>data</span>] )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.one()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Attach a handler to an event for the elements. The handler is executed at most once per element.<br>
-				.one( <span>events</span> [, <span>data</span>], <span>handler</span> )<br>
-				.one( <span>events</span> [, <span>selector</span>] [, <span>data</span>], <span>handler</span> )<br>
-				.one( <span>events-map</span> [, <span>selector</span>] [, <span>data</span>] )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>jQuery.proxy()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Takes a function and returns a new one that will always have a particular context.<br>
-				jQuery.proxy( <span>function</span>, <span>context</span> )<br>
-				jQuery.proxy( <span>context</span>, <span>name</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.ready( <span>handler</span> )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Specify a function to execute when the DOM is fully loaded.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.resize()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.<br>
-				.resize( handler(<span>eventObject</span>) )<br>
-				.resize( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-		</section>
-		<section>
-			<div>
-				<dl>
-					<dt>.scroll()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.<br>
-				.scroll( handler(<span>eventObject</span>) )<br>
-				.scroll( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.select()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "select" JavaScript event, or trigger that event on an element.<br>
-				.select( handler(<span>eventObject</span>) )<br>
-				.select( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.submit()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.<br>
-				.submit( handler(<span>eventObject</span>) )<br>
-				.submit( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
+				<p>Display the matched elements.<br>
+				.show( <span>duration</span> [, <span>callback</span>] )<br>
+				.show( [<span>duration</span>] [, <span>easing</span>] [, <span>callback</span>] )</p>
 			</div>
 			<div>
 				<dl>
 					<dt>.toggle()</dt>
 					<dd>jQ</dd>
 				</dl>
-				<p>Bind two or more handlers to the matched elements, to be executed on alternate clicks.<br>
-				handler(<span>eventObject</span>), handler(<span>eventObject</span>) [,handler(<span>eventObject</span>)]</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.trigger()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Execute all handlers and behaviors attached to the matched elements for the given event type.<br>
-				.trigger( <span>eventType</span>, <span>extraParameters</span> )<br>
-				.trigger( <span>event</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.triggerHandler()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Execute all handlers attached to an element for an event.<br>
-				.triggerHandler( <span>eventType</span>, <span>extraParameters</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.unbind()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove a previously-attached event handler from the elements.<br>
-				.unbind( [<span>eventType</span>] [, handler(<span>eventObject</span>)] )<br>
-				.unbind( <span>eventType</span>, <span>false</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.undelegate()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.<br>
-				.undelegate( <span>selector</span>, <span>eventType</span> )<br>
-				.undelegate( <span>selector</span>, <span>eventType</span>, <span>handler</span> )<br>
-				.undelegate( <span>selector</span>, <span>events</span> )<br>
-				.undelegate( <span>namespace</span> )</p>
+				<p>Display or hide the matched elements.<br>
+				.toggle( [<span>duration</span>] [, <span>callback</span>] )<br>
+				.toggle( [<span>duration</span>] [, <span>easing</span>] [, <span>callback</span>] )<br>
+				.toggle( <span>showOrHide</span> )</p>
 			</div>
 		</section>
 		<section>
-			<div>
-				<dl>
-					<dt>.undelegate()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.<br>
-				.undelegate( <span>selector</span>, <span>eventType</span> )<br>
-				.undelegate( <span>selector</span>, <span>eventType</span>, <span>handler</span> )<br>
-				.undelegate( <span>selector</span>, <span>events</span> )<br>
-				.undelegate( <span>namespace</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.unload()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Bind an event handler to the "unload" JavaScript event.<br>
-				.unload( handler(<span>eventObject</span>) )<br>
-				.unload( [<span>eventData</span>], handler(<span>eventObject</span>) )</p>
-			</div>
-			<h2>Effects</h2>
+			<h3>Custom</h3>
 			<div>
 				<dl>
 					<dt>.animate()</dt>
@@ -1601,27 +1572,102 @@
 				.animate( <span>properties</span> [, <span>duration</span>] [, <span>easing</span>] [, <span>complete</span>] )<br>
 				.animate( <span>properties</span>, <span>options</span> )</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
-					<dt>.clearQueue( <span>[queueName]</span> )</dt>
+					<dt>.clearQueue( [<span>queueName</span>] )</dt>
 					<dd>jQ</dd>
 				</dl>
 				<p>Remove from the queue all items that have not yet been run.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>.delay( <span>duration [, queueName]</span> )</dt>
 					<dd>jQ</dd>
 				</dl>
 				<p>Set a timer to delay execution of subsequent items in the queue.</p>
 			</div>
-			<div>
+			<div class="v1_0">
 				<dl>
-					<dt>.dequeue( <span>[queueName]</span> )</dt>
+					<dt>.dequeue( [<span>queueName</span>] )</dt>
 					<dd>jQ</dd>
 				</dl>
 				<p>Execute the next function on the queue for the matched elements.</p>
 			</div>
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>jQuery.dequeue()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Execute the next function on the queue for the matched element.<br>
+				jQuery.dequeue( <span>element</span> [, <span>queueName</span>] )</p>
+			</div>
+			<div class="v1_8 v1_6 v1_4 v1_2 v1_0">
+				<dl>
+					<dt>finish()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Stop the currently-running animation, remove all queued animations, and complete all animations for the matched elements.<br>
+				.finish( [<span>queue</span>] )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>jQuery.fx.interval</dt>
+					<dd>N</dd>
+				</dl>
+				<p>The rate (in milliseconds) at which animations fire.</p>
+			</div>
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>jQuery.fx.off</dt>
+					<dd>0-1</dd>
+				</dl>
+				<p>Globally disable all animations.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>jQuery.speed</dt>
+					<dd>Obj</dd>
+				</dl>
+				<p>Creates an object containing a set of properties ready to be used in the definition of custom animations.<br>
+				jQuery.speed( [<span>duration</span> ] [, <span>settings</span> ] )<br>
+				jQuery.speed( [<span>duration</span> ] [, <span>easing</span> ] [, <span>complete</span> ] )<br>
+				jQuery.speed( <span>settings</span> )
+				</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>
+						<span class="title">.queue()</span><br>
+						<p>Show the queue of functions to be executed on the matched elements.<br>
+						.queue( [<span>queueName</span>] )<br>
+						.queue( [<span>queueName</span>] , <span>newQueue</span> )<br>
+						.queue( [<span>queueName</span>] , callback( <span>next</span> ) )</p>
+					</dt>
+					<dd>a<br>jQ</dd>
+				</dl>
+			</div>
+		</section>
+		<section>
+			<div class="v1_2 v1_0">
+				<dl>
+					<dt>
+						<span class="title">jQuery.queue()</span><br>
+						<p>Show or manipulate the queue of functions to be executed on the matched element.<br>
+						jQuery.queue( element [, <span>queueName</span> ] )</p>
+					</dt>
+					<dd>a<br>a</dd>
+				</dl>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.stop()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Stop the currently-running animation on the matched elements.<br>
+				.stop( [<span>clearQueue</span>] [, <span>jumpToEnd</span>] )<br>
+				.stop( [<span>queue</span>] [, <span>clearQueue</span>] [, <span>jumpToEnd</span>] )</p>
+			</div>
+			<h3>Fading</h3>
 			<div>
 				<dl>
 					<dt>.fadeIn()</dt>
@@ -1656,54 +1702,7 @@
 				</dl>
 				<p>Display or hide the matched elements by animating their opacity.</p>
 			</div>
-		</section>
-	</div>
-	<div id="page6">
-		<section>
-			<div>
-				<dl>
-					<dt>jQuery.fx.interval</dt>
-					<dd>N</dd>
-				</dl>
-				<p>The rate (in milliseconds) at which animations fire.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>jQuery.fx.off</dt>
-					<dd>0-1</dd>
-				</dl>
-				<p>Globally disable all animations.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.hide()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Hide the matched elements.<br>
-				.hide( <span>duration</span> [, <span>callback</span>] )<br>
-				.hide( [<span>duration</span>] [, <span>easing</span>] [, <span>callback</span>] )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>
-						<span class="title">.queue()</span><br>
-						<p>Show the queue of functions to be executed on the matched elements.<br>
-						.queue( [<span>queueName</span>] )<br>
-						.queue( [<span>queueName</span>] , <span>newQueue</span> )<br>
-						.queue( [<span>queueName</span>] , callback( <span>next</span> ) )</p>
-					</dt>
-					<dd>a<br>jQ</dd>
-				</dl>
-			</div>
-			<div>
-				<dl>
-					<dt>.show()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Display the matched elements.<br>
-				.show( <span>duration</span> [, <span>callback</span>] )<br>
-				.show( [<span>duration</span>] [, <span>easing</span>] [, <span>callback</span>] )</p>
-			</div>
+			<h3>Sliding</h3>
 			<div>
 				<dl>
 					<dt>.slideDown()</dt>
@@ -1731,37 +1730,10 @@
 				.slideUp( [<span>duration</span>] [, <span>callback</span>] )<br>
 				.slideUp( [<span>duration</span>] [, <span>easing</span>] [, <span>callback</span>] )</p>
 			</div>
-			<div>
-				<dl>
-					<dt><span class="bigStar">&#8902;</span>.stop()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Stop the currently-running animation on the matched elements.<br>
-				.stop( [<span>clearQueue</span>] [, <span>jumpToEnd</span>] )<br>
-				.stop( [<span>queue</span>] [, <span>clearQueue</span>] [, <span>jumpToEnd</span>] )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.toggle()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Display or hide the matched elements.<br>
-				.toggle( [<span>duration</span>] [, <span>callback</span>] )<br>
-				.toggle( [<span>duration</span>] [, <span>easing</span>] [, <span>callback</span>] )<br>
-				.toggle( <span>showOrHide</span> )</p>
-			</div>
 		</section>
 		<section>
-		<h2>AJAX</h2>
-			<div>
-				<dl>
-					<dt>jQuery.ajax()</dt>
-					<dd>jqXHR</dd>
-				</dl>
-				<p>Perform an asynchronous HTTP (Ajax) request.<br>
-				jQuery.ajax( <span>url</span> [, <span>settings</span>] )<br>
-				jQuery.ajax( <span>settings</span> )</p>
-			</div>
+			<h2>AJAX</h2>
+			<h3>Global Event Handlers</h3>
 			<div>
 				<dl>
 					<dt>.ajaxComplete()</dt>
@@ -1780,23 +1752,11 @@
 			</div>
 			<div>
 				<dl>
-					<dt>jQuery.ajaxPrefilter()</dt>
-					<dd>u</dd>
-				</dl>
-				<p>Handle custom Ajax options or modify existing options before each request is sent and before they are processed by $.ajax().<br>
-				jQuery.ajaxPrefilter( [<span>dataTypes</span>] , handler(<span>options</span>, <span>originalOptions</span>, <span>jqXHR</span>) )</p>
-			</div>
-			<div>
-				<dl>
 					<dt>.ajaxSend()</dt>
 					<dd>jQ</dd>
 				</dl>
 				<p>Attach a function to be executed before an Ajax request is sent. This is an Ajax Event.<br>
 				.ajaxSend( handler(<span>event</span>, <span>jqXHR</span>, <span>ajaxOptions</span>) )</p>
-			</div>
-			<div>
-				<p class="title">jQuery.ajaxSetup( <span>options</span> )</p>
-				<p>Set default values for future Ajax requests.</p>
 			</div>
 			<div>
 				<dl>
@@ -1820,6 +1780,64 @@
 				<p>Attach a function to be executed whenever an Ajax request completes successfully. This is an Ajax Event.<br>
 				.ajaxSuccess( handler(<span>event</span>, <span>XMLHttpRequest</span>, <span>ajaxOptions</span>) )</p>
 			</div>
+			<h3>Helper Functions</h3>
+			<div class="v1_0">
+				<dl>
+					<dt>jQuery.param()</dt>
+					<dd>Str</dd>
+				</dl>
+				<p>object, suitable for use in a URL query string or Ajax request.<br>
+				jQuery.param( <span>obj</span> )<br>
+				jQuery.param( <span>obj</span>, traditional</span> )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.serialize()</dt>
+					<dd>Str</dd>
+				</dl>
+				<p>Encode a set of form elements as a string for submission.</p>
+			</div>
+			<div class="v1_0">
+				<dl>
+					<dt>.serializeArray()</dt>
+					<dd>a</dd>
+				</dl>
+				<p>Encode a set of form elements as an array of names and values.</p>
+			</div>
+		</section>
+	</div>
+	<div id="page7">
+		<section>
+			<h3>Low Level Interface</h3>
+			<div>
+				<dl>
+					<dt>jQuery.ajax()</dt>
+					<dd>jqXHR</dd>
+				</dl>
+				<p>Perform an asynchronous HTTP (Ajax) request.<br>
+				jQuery.ajax( <span>url</span> [, <span>settings</span>] ), jQuery.ajax( <span>settings</span> )</p>
+			</div>
+			<div class="v1_4 v1_2 v1_0">
+				<dl>
+					<dt>jQuery.ajaxPrefilter()</dt>
+					<dd>u</dd>
+				</dl>
+				<p>Handle custom Ajax options or modify existing options before each request is sent and before they are processed by $.ajax().<br>
+				jQuery.ajaxPrefilter( [<span>dataTypes</span>] , handler(<span>options</span>, <span>originalOptions</span>, <span>jqXHR</span>) )</p>
+			</div>
+			<div class="v1_0">
+				<p class="title">jQuery.ajaxSetup( <span>options</span> )</p>
+				<p>Set default values for future Ajax requests.</p>
+			</div>
+			<div class="v1_4 v1_2 v1_0">
+				<dl>
+					<dt>jQuery.ajaxTransport( <span>options</span> )</dt>
+					<dd>u</dd>
+				</dl>
+				<p>Creates an object that handles the actual transmission of Ajax data.<br>
+				jQuery.ajaxTransport( <span>dataType</span> , handler(<span>options</span>) )</p>
+			</div>
+			<h3>Shorthand Methods</h3>
 			<div>
 				<dl>
 					<dt>jQuery.get()</dt>
@@ -1828,8 +1846,6 @@
 				<p>Load data from the server using a HTTP GET request.<br>
 				jQuery.get( <span>url</span> [, <span>data</span>] [, success(<span>data</span>, <span>textStatus</span>, <span>jqXHR</span>)] [, <span>dataType</span>] )</p>
 			</div>
-		</section>
-		<section>
 			<div>
 				<dl>
 					<dt>jQuery.getJSON()</dt>
@@ -1848,23 +1864,6 @@
 			</div>
 			<div>
 				<dl>
-					<dt>.load()</dt>
-					<dd>jqXHR</dd>
-				</dl>
-				<p>Load data from the server and place the returned	HTML into the matched element.<br>
-				.load( <span>url</span> [, <span>data</span>] [, complete(<span>responseText</span>, <span>textStatus</span>, <span>XMLHttpRequest</span>)] )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>jQuery.param()</dt>
-					<dd>Str</dd>
-				</dl>
-				<p>object, suitable for use in a URL query string or Ajax request.<br>
-				jQuery.param( <span>obj</span> )<br>
-				jQuery.param( <span>obj</span>, traditional</span> )</p>
-			</div>
-			<div>
-				<dl>
 					<dt>jQuery.post()</dt>
 					<dd>jqXHR</dd>
 				</dl>
@@ -1873,65 +1872,35 @@
 			</div>
 			<div>
 				<dl>
-					<dt>.serialize()</dt>
-					<dd>Str</dd>
+					<dt>.load()</dt>
+					<dd>jqXHR</dd>
 				</dl>
-				<p>Encode a set of form elements as a string for submission.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.serializeArray()</dt>
-					<dd>a</dd>
-				</dl>
-				<p>Encode a set of form elements as an array of names and values.</p>
+				<p>Load data from the server and place the returned	HTML into the matched element.<br>
+				.load( <span>url</span> [, <span>data</span>] [, complete(<span>responseText</span>, <span>textStatus</span>, <span>XMLHttpRequest</span>)] )</p>
 			</div>
 			<h2>Utilities</h2>
-			<div>
+			<div class="v3_0 v2_0 v1_8 v1_6 v1_4">
 				<dl>
 					<dt>jQuery.boxModel</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Deprecated</p>
 			</div>
-			<div>
+		</section>
+		<section>
+			<div class="v3_0 v2_0 v1_8 v1_6 v1_4">
 				<dl>
 					<dt>jQuery.browser</dt>
 					<dd>Map</dd>
 				</dl>
 				<p>Deprecated</p>
 			</div>
-			<div>
-				<dl>
-					<dt>.clearQueue( [<span>queueName</span>] )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove from the queue all items that have not yet been run.</p>
-			</div>
-		</section>
-		<section>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>jQuery.contains( container, contained )</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Check to see if a DOM element is within another DOM element.</p>
-			</div>
-			<div>
-				<dl>
-					<dt>jQuery.data()</dt>
-					<dd>Obj</dd>
-				</dl>
-				<p>Store arbitrary data associated with the specified element. Returns the value that was set.<br>
-				jQuery.data( <span>element</span> , <span>key</span>, <span>value</span> )<br>
-				jQuery.data( <span>element</span>, <span>key</span> )<br>
-				jQuery.data( <span>element</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.dequeue( [<span>queueName</span>] )</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Execute the next function on the queue for the matched elements.</p>
 			</div>
 			<div>
 				<dl>
@@ -1963,7 +1932,7 @@
 				<p>Finds the elements of an array which satisfy a filter function. The original array is not affected.<br>
 				jQuery.grep( <span>array</span>, function(<span>elementOfArray</span>, <span>indexInArray</span>) [, <span>invert</span>] )</p>
 			</div>
-			<div>
+			<div class="v1_0">
 				<dl>
 					<dt>jQuery.inArray()</dt>
 					<dd>N</dd>
@@ -1971,39 +1940,37 @@
 				<p>Search for a specified value within an array and return its index (or -1 if not found).<br>
 				jQuery.inArray( <span>value</span>, array [, <span>fromIndex</span>] )</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>jQuery.isArray( <span>object</span> )</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Determine whether the argument is an array.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>jQuery.isEmptyObject( <span>object</span> )</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Check to see if an object is empty (contains no properties).</p>
 			</div>
-			<div>
+			<div class="v1_0">
 				<dl>
 					<dt>jQuery.isFunction( <span>object</span> )</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Determine if the argument passed is a Javascript function object.</p>
 			</div>
-		</section>
-	</div>
-	<div id="page7">
-		<section>
-			<div>
+			<div class="v1_6 v1_4 v1_2 v1_0">
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> jQuery.isNumeric( <span>object</span> )</dt>
+					<dt>jQuery.isNumeric( <span>object</span> )</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Determines whether its argument is a number.</p>
 			</div>
-			<div>
+		</section>
+		<section>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>jQuery.isPlainObject( <span>object</span> )</dt>
 					<dd>0-1</dd>
@@ -2024,7 +1991,7 @@
 				</dl>
 				<p>Check to see if a DOM node is within an XML document (or is an XML document).</p>
 			</div>
-			<div>
+			<div class="v1_0">
 				<dl>
 					<dt>jQuery.makeArray( <span>object</span> )</dt>
 					<dd>a</dd>
@@ -2047,7 +2014,7 @@
 				</dl>
 				<p>Merge the contents of two arrays together into the first array.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>jQuery.noop()</dt>
 					<dd>f(x)</dd>
@@ -2061,21 +2028,28 @@
 				</dl>
 				<p>Return a number representing the current time.</p>
 			</div>
-			<div>
+			<div class="v1_7 v1_6 v1_4 v1_2 v1_0">
+				<dl>
+					<dt>jQuery.parseHTML(<span>data</span> [, <span>context</span> ] [, <span>keepScripts</span> ])</dt>
+					<dd>Obj</dd>
+				</dl>
+				<p>Parses a string into an array of DOM nodes.</p>
+			</div>
+			<div class="v3_0">
 				<dl>
 					<dt>jQuery.parseJSON( <span>json</span> )</dt>
 					<dd>Obj</dd>
 				</dl>
 				<p>Takes a well-formed JSON string and returns the resulting JavaScript object.</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>jQuery.parseXML( <span>data</span> )</dt>
 					<dd>XMLdoc</dd>
 				</dl>
 				<p>Parses a string into an XML document.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>jQuery.proxy()</dt>
 					<dd>f(x)</dd>
@@ -2084,39 +2058,9 @@
 				jQuery.proxy( <span>function</span>, <span>context</span> )<br>
 				jQuery.proxy( <span>context</span>, <span>name</span> )</p>
 			</div>
-			<div>
-				<dl>
-					<dt>
-						<span class="title">jQuery.queue()</span><br>
-						<p>Takes a function and returns a new one that will always have a particular context.<br>
-						jQuery.queue( <span>element</span> [ , <span>queueName</span> ] )<br>
-						jQuery.queue( <span>element</span> , <span>queueName</span> , <span>newQueue</span> )</p>
-					</dt>
-					<dd>a<br>jQ</dd>
-				</dl>
-			</div>
 		</section>
 		<section>
-			<div>
-				<dl>
-					<dt>
-						<span class="title">.queue()</span><br>
-						<p>Show the queue of functions to be executed on the matched elements.<br>
-						.queue( [<span>queueName</span>] )<br>
-						.queue( [<span>queueName</span>] , <span>newQueue</span> )<br>
-						.queue( [<span>queueName</span>] , callback( <span>next</span> ) )</p>
-					</dt>
-					<dd>a<br>jQ</dd>
-				</dl>
-			</div>
-			<div>
-				<dl>
-					<dt>jQuery.removeData()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove a previously-stored piece of data jQuery.removeData( <span>element</span> [, <span>name</span>] )</p>
-			</div>
-			<div>
+			<div class="v3_0 v2_0 v1_2 v1_0">
 				<dl>
 					<dt>jQuery.support</dt>
 					<dd>obj</dd>
@@ -2137,58 +2081,116 @@
 				</dl>
 				<p>Determine the internal JavaScript [[Class]] of an object.</p>
 			</div>
-			<div>
+			<div class="v3_0">
 				<dl>
 					<dt>jQuery.unique( <span>array</span> )</dt>
 					<dd>a</dd>
 				</dl>
 				<p>Sorts an array of DOM elements, in place, with the duplicates removed. Note that this only works on arrays of DOM elements, not strings or numbers.</p>
 			</div>
-			<h2>Callbacks Object</h2>
+			<div class="v2_0 v1_8 v1_6 v1_4 v1_2 v1_0">
+				<dl>
+					<dt>jQuery.uniqueSort( <span>array</span> )</dt>
+					<dd>a</dd>
+				</dl>
+				<p>Sorts an array of DOM elements, in place, with the duplicates removed. Note that this only works on arrays of DOM elements, not strings or numbers.</p>
+			</div>
+			<h3>Internals</h3>
 			<div>
-				<p class="title"><span class="bigStar">&#8902;</span> jQuery.Callbacks( <span>flag</span> )</p>
+				<dl>
+					<dt>.jquery</dt>
+					<dd>Str</dd>
+				</dl>
+				<p>A string containing the jQuery version number.</p>
+			</div>
+			<div class="v3_0 v2_0 v1_2 v1_0">
+				<dl>
+					<dt>.context</dt>
+					<dd>el</dd>
+				</dl>
+				<p>The DOM node context originally passed to jQuery(); if none was passed then context will likely be the document.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>jQuery.error()</dt>
+					<dd>el</dd>
+				</dl>
+				<p>Takes a string and throws an exception containing it.<br>
+				jQuery.error( <span>message</span> )</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.length</dt>
+					<dd>N</dd>
+				</dl>
+				<p>The number of elements in the jQuery object.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>.pushStack()</dt>
+					<dd>jQ</dd>
+				</dl>
+				<p>Add a collection of DOM elements onto the jQuery stack.<br>
+				.pushStack( <span>elements</span> ), .pushStack( <span>elements</span>, <span>name</span>, <span>arguments</span> ) </p>
+			</div>
+			<div class="v3_0 v2_0 v1_8 v1_2 v1_0">
+				<p class="title">.selector</p>
+				<p>A selector representing selector passed to jQuery(), if any, when creating the original set.</p>
+			</div>
+		</section>
+	</div>
+	<div id="page8">
+		<section class="v1_6 v1_4 v1_2 v1_0">
+			<h2>Callbacks</h2>
+			<div>
+				<p class="title">jQuery.Callbacks( <span>flag</span> )</p>
 				<p>A multi-purpose callbacks list object that provides a powerful way to manage callback lists.</p>
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.add( <span>callbacks</span> )</dt>
+					<dt>callbacks.add( <span>callbacks</span> )</dt>
 					<dd>u</dd>
 				</dl>
 				<p>Add a callback or a collection of callbacks to a callback list.</p>
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.disable()</dt>
+					<dt>callbacks.disable()</dt>
 					<dd>u</dd>
 				</dl>
 				<p>Disable a callback list from doing anything more.</p>
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.empty()</dt>
+					<dt>callbacks.disabled()</dt>
+					<dd>u</dd>
+				</dl>
+				<p>Determine if the callbacks list has been disabled.</p>
+			</div>
+			<div>
+				<dl>
+					<dt>callbacks.empty()</dt>
 					<dd>u</dd>
 				</dl>
 				<p>Remove all of the callbacks from a list.</p>
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.fire(<span>arguments</span>)</dt>
+					<dt>callbacks.fire(<span>arguments</span>)</dt>
 					<dd>u</dd>
 				</dl>
 				<p>Call all of the callbacks with the given arguments</p>
 			</div>
-		</section>
-		<section>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.fired()</dt>
+					<dt>callbacks.fired()</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Determine if the callbacks have already been called at least once.</p>
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.fireWith()</dt>
+					<dt>callbacks.fireWith()</dt>
 					<dd>u</dd>
 				</dl>
 				<p>Call all callbacks in a list with the given context and arguments.<br>
@@ -2196,74 +2198,35 @@
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.has( <span>callback</span> )</dt>
+					<dt>callbacks.has( <span>callback</span> )</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Determine whether a supplied callback is in a list.</p>
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.lock()</dt>
+					<dt>callbacks.lock()</dt>
 					<dd>u</dd>
 				</dl>
 				<p>Lock a callback list in its current state.</p>
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.locked()</dt>
+					<dt>callbacks.locked()</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Determine if the callbacks list has been locked.</p>
 			</div>
 			<div>
 				<dl>
-					<dt><span class="bigStar">&#8902;</span> callbacks.remove( <span>callback</span> )</dt>
+					<dt>callbacks.remove( <span>callback</span> )</dt>
 					<dd>u</dd>
 				</dl>
 				<p>Remove a callback or a collection of callbacks from a callback list.</p>
 			</div>
-			<h2>Data &amp; Miscellaneous</h2>
-			<div>
-				<dl>
-					<dt>.data()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Store arbitrary data associated with the matched	elements.<br>
-				data( <span>key</span> , <span>value</span> ), data( <span>key</span> )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>jQuery.dequeue()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Execute the next function on the queue for the matched element.<br>
-				jQuery.dequeue( <span>element</span> [, <span>queueName</span>] )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>jQuery.hasData( <span>element</span> )</dt>
-					<dd>0-1</dd>
-				</dl>
-				<p>Determine whether an element has any jQuery data associated with it.</p>
-			</div>
-			<div>
-				<dl>
-					<dt><span class="bigStar">&#8902;</span> .removeData()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Remove a previously-stored piece of data.<br>
-				.removeData( [<span>name</span>] ), .removeData( [<span>list</span>] )</p>
-			</div>
-			<div>
-				<dl>
-					<dt>.each()</dt>
-					<dd>jQ</dd>
-				</dl>
-				<p>Iterate over a jQuery object, executing a function for each matched element.<br>
-				.each( function(<span>index</span>, <span>Element</span>) )</p>
-			</div>
 		</section>
 		<section>
+			<h2>DOM Element Methods</h2>
 			<div>
 				<dl>
 					<dt>
@@ -2282,29 +2245,29 @@
 				<p>Search for a given element from among the matched elements.<br>
 				.index( <span>selector</span> ), .index( <span>element</span> )</p>
 			</div>
-			<div>
-				<dl>
-					<dt>jQuery.noConflict( <span>[removeAll]</span> )</dt>
-					<dd>Obj</dd>
-				</dl>
-				<p>Relinquish jQuery's control of the $ variable.</p>
-			</div>
-			<div>
+			<div class="v3_0 v2.0 v1_8">
 				<dl>
 					<dt>.size()</dt>
 					<dd>N</dd>
 				</dl>
 				<p>Return the number of elements in the jQuery object.</p>
 			</div>
-			<div>
+			<div class="v1_2 v1_0">
 				<dl>
 					<dt>.toArray()</dt>
 					<dd>a</dd>
 				</dl>
 				<p>Retrieve all the DOM elements contained in the jQuery set, as an array.</p>
 			</div>
-			<h2>Deferred</h2>
-			<div>
+			<h2 class="v1_4 v1_2 v1_0">Deferred</h2>
+			<div class="v1_4 v1_2 v1_0">
+				<dl>
+					<dt>jQuery.Deferred()</dt>
+					<dd>promise</dd>
+				</dl>
+				<p>Provides a way to execute callback functions based on one or more objects, usually Deferred objects that represent asynchronous events.</p>
+			</div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.always()</dt>
 					<dd>def</dd>
@@ -2312,7 +2275,7 @@
 				<p>Add handlers to be called when the Deferred object is either resolved or rejected.<br>
 				deferred.always( <span>alwaysCallbacks</span> [, <span>alwaysCallbacks</span>] )</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.done()</dt>
 					<dd>def</dd>
@@ -2320,7 +2283,7 @@
 				<p>Add handlers to be called when the Deferred object is resolved.<br>
 				deferred.done( <span>doneCallbacks</span> [, <span>doneCallbacks</span>] )</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.fail()</dt>
 					<dd>def</dd>
@@ -2328,21 +2291,21 @@
 				<p>Add handlers to be called when the Deferred object is rejected.<br>
 				deferred.fail( <span>failCallbacks</span> [, <span>failCallbacks</span>] )</p>
 			</div>
-			<div>
+			<div class="v3_0 v2_0 v1_8 v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.isRejected()</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Determine whether a Deferred object has been rejected.</p>
 			</div>
-			<div>
+			<div class="v3_0 v2_0 v1_8 v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.isResolved()</dt>
 					<dd>0-1</dd>
 				</dl>
 				<p>Determine whether a Deferred object has been resolved.</p>
 			</div>
-			<div>
+			<div class="v1_6 v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.notify( args )</dt>
 					<dd>0-1</dd>
@@ -2350,10 +2313,8 @@
 				<p>Call the progressCallbacks on a Deferred object with the	given args.</p>
 			</div>
 		</section>
-	</div>
-	<div id="page8">
-		<section>
-			<div>
+		<section class="v1_4 v1_2 v1_0">
+			<div class="v1_6 v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.notifyWith()</dt>
 					<dd>def</dd>
@@ -2361,7 +2322,7 @@
 				<p>Call the progressCallbacks on a Deferred object with the given context and args.<br>
 				deferred.notifyWith( <span>context</span> [, <span>args</span>] )</p>
 			</div>
-			<div>
+			<div class="v3_0 v2_0 v1_8 v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.pipe()</dt>
 					<dd>promise</dd>
@@ -2370,7 +2331,7 @@
 				deferred.pipe( [<span>doneFilter</span>] [, <span>failFilter</span>] )<br>
 				deferred.pipe( [<span>doneFilter</span>] [, <span>failFilter</span>] [,<span>progressFilter</span>] )</p>
 			</div>
-			<div>
+			<div class="v1_6 v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.progress()</dt>
 					<dd>def</dd>
@@ -2378,7 +2339,7 @@
 				<p>Add handlers to be called when the Deferred object generates progress notifications.<br>
 				deferred.progress( <span>progressCallbacks</span> )</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.promise()</dt>
 					<dd>promise</dd>
@@ -2386,14 +2347,14 @@
 				<p>Return a Deferred's Promise object.
 				deferred.promise( [<span>target</span>] )</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.reject( <span>args</span> )</dt>
 					<dd>def</dd>
 				</dl>
 				<p>Reject a Deferred object and call any failCallbacks with the given args.</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.rejectWith()</dt>
 					<dd>def</dd>
@@ -2401,14 +2362,14 @@
 				<p>Reject a Deferred object and call any failCallbacks with the given context and args.<br>
 				deferred.rejectWith( <span>context</span> [, <span>args</span>] )</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.resolve( <span>args</span> )</dt>
 					<dd>def</dd>
 				</dl>
 				<p>Resolve a Deferred object and call any doneCallbacks with the given args.</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.resolveWith()</dt>
 					<dd>def</dd>
@@ -2416,14 +2377,14 @@
 				<p>Resolve a Deferred object and call any doneCallbacks with the given args.<br>
 				deferred.resolveWith( <span>context</span> [, <span>args</span>] )</p>
 			</div>
-			<div>
+			<div class="v1_6 v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.state()</dt>
 					<dd>Str</dd>
 				</dl>
 				<p>Determine the current state of a Deferred object.</p>
 			</div>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>deferred.then()</dt>
 					<dd>def</dd>
@@ -2432,9 +2393,7 @@
 				deferred.then( <span>doneCallbacks</span>, <span>failCallbacks</span> )<br>
 				deferred.then( <span>doneCallbacks</span>, <span>failCallbacks</span> [, <span>progressCallbacks</span>] )</p>
 			</div>
-		</section>
-		<section>
-			<div>
+			<div class="v1_4 v1_2 v1_0">
 				<dl>
 					<dt>.promise()</dt>
 					<dd>promise</dd>
@@ -2442,67 +2401,21 @@
 				<p>Return a Promise object to observe when all actions of a certain type bound to the collection, queued or not, have finished.<br>
 				.promise( [<span>type</span>] [, <span>target</span>] )</p>
 			</div>
-			<div>
-				<dl>
-					<dt>jQuery.when(<span>deferreds</span>)</dt>
-					<dd>promise</dd>
-				</dl>
-				<p>Provides a way to execute callback functions based on one or more objects, usually Deferred objects that represent asynchronous events.</p>
-			</div>
 		</section>
-		<section class="wide">
+		<section class="credits">
+			<h2>About jQuery</h2>
 			<div>
-				<h3>New or Changed in jQuery 1.7.1</h3>
-				<p>WHAT’S NEW?</p>
-				<p>Aspects of the API that were changed in the corresponding version of	jQuery. API changes in jQuery 1.7.0 dealt primarily with the new Event APIs: .on() and .off()</p>
-				<p>Better Support for HTML5 in IE6/7/8</p>
-				<p>jQuery.Callbacks()</p>
-				<p>Toggling Animations Work Intuitively</p>
-				<ul>
-					<li>jQuery.Callbacks()</li>
-					<li>callbacks.add()</li>
-					<li>callbacks.disable()</li>
-					<li>callbacks.empty()</li>
-					<li>callbacks.fire()</li>
-					<li>callbacks.fired()</li>
-					<li>callbacks.fireWith()</li>
-					<li>callbacks.has()</li>
-					<li>callbacks.lock()</li>
-					<li>callbacks.locked()</li>
-					<li>callbacks.remove()</li>
-					<li>deferred.notify()</li>
-					<li>deferred.notifyWith()</li>
-					<li>deferred.pipe()</li>
-					<li>deferred.progress()</li>
-					<li>deferred.state()</li>
-					<li>deferred.then()</li>
-					<li>event.delegateTarget</li>
-					<li>.is()</li>
-					<li>jQuery.isNumeric()</li>
-					<li>.off()</li>
-					<li>.on()</li>
-					<li>.removeAttr()</li>
-					<li>.removeData()</li>
-					<li>.stop()</li>
-				</ul>
-				
-			</div>
-			<div>
-				<h4>About jQuery</h4>
-				<p>
-				THE WRITE LESS, DO MORE, JAVASCRIPT LIBRARY</p>
-				<p>
-				jQuery is a fast and concise JavaScript Library that simplifies
+				<p>THE WRITE LESS, DO MORE, JAVASCRIPT LIBRARY</p>
+				<p>jQuery is a fast and concise JavaScript Library that simplifies
 				HTML document traversing, event handling, animating, and
 				Ajax interactions for rapid web development. jQuery is designed
 				to change the way that you write JavaScript.<br>
-				jQuery Official Web Site http://jquery.com<br>
-				</p>
-				<h4>Credits</h4>
-				<p>JQUERY 1.7 VISUAL CHEAT SHEET</p>
-				<p>
-				Original cheat sheet .pdf designed by Antonio Lupetti.<br>
-				Update as of december 2011, jQuery current release v 1.7.1</p>
+				jQuery Official Web Site http://jquery.com</p>
+			</div>
+			<h4>Credits</h4>
+			<div>
+				<p>Original concept leverages the <a href="https://cdn.woorkup.com/wp-content/uploads/2016/01/jQuery-17-Visual-Cheat-Sheet1.pdf" target="_blank">1.7 jQuery cheat sheet .pdf</a> designed by Antonio Lupetti.</p>
+				<p>Extended for versions shown using Oscar Otero's API reference: <a href="https://oscarotero.com/jquery/" target="_blank">https://oscarotero.com/jquery/</a></p>
 			</div>
 		</section>
 	</div>
@@ -2510,38 +2423,83 @@
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-// Project screens pagination
-$(".left ul li a").on("click", function(){
+
+// Version control
+$(".v3_0").addClass("gray");
+$(".left ul.js_versions li a").on("click", function(){
+	var num = $(this).text().toLowerCase().replace(".", "_");
+    $(".left ul.js_versions li a").removeClass("active");
+    $(this).addClass("active");
+    $("section, section div").removeClass("gray");
+    switch (num) {
+      case '3_0':
+        $(".v3_0").addClass("gray");
+        $("header h1").css("background-position", "-1px 39px");
+        break;
+      case '2_0':
+      	$(".v2_0").addClass("gray");
+      	$("header h1").css("background-position", "18px 39px");
+        break;
+      case '1_8':
+        $(".v1_8").addClass("gray");
+        $("header h1").css("background-position", "37px 39px");
+        break;
+      case '1_6':
+        $(".v1_6").addClass("gray");
+        $("header h1").css("background-position", "56px 39px");
+        break;
+      case '1_4':
+        $(".v1_4").addClass("gray");
+        $("header h1").css("background-position", "74px 39px");
+        break;
+      case '1_2':
+        $(".v1_2").addClass("gray");
+        $("header h1").css("background-position", "90px 39px");
+        break;
+      case '1_0':
+        $(".v1_0").addClass("gray");
+        $("header h1").css("background-position", "108px 39px");
+        break;
+      default:
+        $(".v3_0").addClass("gray");
+        $("header h1").css("background-position", "-1px 39px");
+        break;
+    }
+    return false;
+});
+
+// Pagination
+$(".left ul:last-child li a").on("click", function(){
     var txt = $(this).text().toLowerCase().replace(/ /g, '');
-    $(".left ul li a").removeClass("active");
+    $(".left ul:last-child li a").removeClass("active");
     $(this).addClass("active");
     $("[id*='page']").hide();
     $("#" + txt).show();
     $(".right ul:first-child li").removeClass("selected");
     	switch (txt) {
 	      case 'page1':
-	        $(".right:first-child ul").find("li:nth-child(1), li:nth-child(2)").addClass("selected");
+	        $(".right ul:first-child").find("li:nth-child(1), li:nth-child(2)").addClass("selected");
 	        break;
 	      case 'page2':
 	      	$(".right ul:first-child").find("li:nth-child(2), li:nth-child(3), li:nth-child(4)").addClass("selected");
 	        break;
 	      case 'page3':
-	        $(".right ul:first-child").find("li:nth-child(5), li:nth-child(6)").addClass("selected");
+	        $(".right ul:first-child").find("li:nth-child(4), li:nth-child(5), li:nth-child(6)").addClass("selected");
 	        break;
 	      case 'page4':
 	        $(".right ul:first-child").find("li:nth-child(6), li:nth-child(7)").addClass("selected");
 	        break;
 	      case 'page5':
-	        $(".right ul:first-child").find("li:nth-child(7), li:nth-child(8)").addClass("selected");
+	        $(".right ul:first-child").find("li:nth-child(7)").addClass("selected");
 	        break;
 	      case 'page6':
-	        $(".right ul:first-child").find("li:nth-child(8), li:nth-child(9), li:nth-child(10)").addClass("selected");
+	        $(".right ul:first-child").find("li:nth-child(7), li:nth-child(8), li:nth-child(9)").addClass("selected");
 	        break;
 	      case 'page7':
-	        $(".right ul:first-child").find("li:nth-child(10), li:nth-child(11), li:nth-child(12), li:nth-child(13)").addClass("selected");
+	        $(".right ul:first-child").find("li:nth-child(9), li:nth-child(10)").addClass("selected");
 	        break;
 	      case 'page8':
-	        $(".right ul:first-child").find("li:nth-child(13)").addClass("selected");
+	        $(".right ul:first-child").find("li:nth-child(11), li:nth-child(12), li:nth-child(13) , li:nth-child(14)").addClass("selected");
 	        break;
 	      default:
 	        $(".right ul:first-child").find("li").removeClass("selected");
